@@ -20,7 +20,7 @@ ConfigUtils.setConfigProp('themePrefix', 'austrocontrol-ms2');
  *
  * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-ConfigUtils.setLocalConfigurationFile('MapStore2/web/client/localConfig.json');
+ConfigUtils.setLocalConfigurationFile('localConfig.json');
 
 /**
  * Use a custom application configuration file with:

@@ -2,8 +2,9 @@ const path = require("path");
 
 const themeEntries = require('./MapStore2/themes.js').themeEntries;
 const extractThemesPlugin = require('./MapStore2/themes.js').extractThemesPlugin;
+const assign = require('object-assign');
 
-module.exports = require('./MapStore2/buildConfig')(
+module.exports = assign({}, require('./MapStore2/buildConfig')(
     {
         'austrocontrol-ms2': path.join(__dirname, "js", "app")
     },
@@ -18,4 +19,19 @@ module.exports = require('./MapStore2/buildConfig')(
     false,
     "/dist/",
     '.austrocontrol-ms2'
-);
+), {
+    devServer: {
+        proxy: {
+            '/rest/geostore': {
+                target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2"
+            },
+            '/proxy': {
+                target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2"
+            },
+            '/docs': {
+                target: "http://localhost:8081",
+                pathRewrite: { '/docs': '/mapstore/docs' }
+            }
+        }
+    }
+});
