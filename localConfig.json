@@ -2,7 +2,13 @@
 
     "proxyUrl": {
         "url": "proxy/?url=",
-        "useCORS": ["http://demo.geo-solutions.it/geoserver", "https://demo.geo-solutions.it:443/geoserver", "https://demo.geo-solutions.it/geoserver"]
+        "useCORS": [
+            "http://demo.geo-solutions.it/geoserver",
+            "https://demo.geo-solutions.it:443/geoserver",
+            "https://demo.geo-solutions.it/geoserver",
+            "https://sdigeo-free.austrocontrol.at",
+            "https://sdimd-free.austrocontrol.at"
+        ]
     },
     "geoStoreUrl": "rest/geostore/",
     "printUrl": "https://demo.geo-solutions.it/geoserver/pdf/info.json",
@@ -31,6 +37,7 @@
       {"name": "browser", "path": "browser"},
       {"name": "featuregridmode", "path": "featuregrid.mode"}],
     "projectionDefs": [],
+    "loadAfterTheme": true,
     "initialState": {
       "defaultState": {
         "maptype": {
@@ -48,8 +55,32 @@
                 "isNew": true,
                 "autoload": false
             },
-            "selectedService": "Demo CSW Service",
+            "selectedService": "AustroControl Free CSW Service",
             "services": {
+              "AustroControl Inspire WMS Service": {
+                "url": "https://sdigeo-free.austrocontrol.at/geoserver/inspire/wms",
+                "type": "wms",
+                "title": "AustroControl Inspire WMS Service",
+                "autoload": true
+              },
+              "AustroControl Free WMS Service": {
+                "url": "https://sdigeo-free.austrocontrol.at/geoserver/free/wms",
+                "type": "wms",
+                "title": "AustroControl Free WMS Service",
+                "autoload": true
+              },
+              "AustroControl Inspire CSW Service": {
+                "url": "https://sdimd-free.austrocontrol.at/geonetwork/srv/eng/csw-inspire",
+                "type": "csw",
+                "title": "AustroControl Inspire CSW Service",
+                "autoload": true
+              },
+              "AustroControl Free CSW Service": {
+                "url": "https://sdimd-free.austrocontrol.at/geonetwork/srv/eng/csw-free",
+                "type": "csw",
+                "title": "AustroControl Free CSW Service",
+                "autoload": true
+              },
               "Demo CSW Service": {
                 "url": "https://demo.geo-solutions.it/geoserver/csw",
                 "type": "csw",
