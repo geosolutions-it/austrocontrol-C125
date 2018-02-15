@@ -55,7 +55,7 @@
                 "isNew": true,
                 "autoload": false
             },
-            "selectedService": "AustroControl Free CSW Service",
+            "selectedService": "AustroControl Free WMS Service",
             "services": {
               "AustroControl Inspire WMS Service": {
                 "url": "https://sdigeo-free.austrocontrol.at/geoserver/inspire/wms",
