@@ -46,7 +46,13 @@
         "maps": {
           "mapType": "openlayers"
         },
-        "catalog": {
+        "annotations": {
+          "config": {
+            "multiGeometry": true,
+            "validationErrors": {}
+          }
+        },
+		"catalog": {
           "default": {
             "newService": {
                 "url": "",
