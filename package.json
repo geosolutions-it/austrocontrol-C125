@@ -80,6 +80,7 @@
     "dependencies": {
         "@carnesen/redux-add-action-listener-enhancer": "0.0.1",
         "@mapbox/togeojson": "0.16.0",
+        "@mapbox/geojsonhint": "2.0.1",
         "@turf/bbox": "4.1.0",
         "@turf/inside": "4.1.0",
         "@turf/line-intersect": "4.1.0",
