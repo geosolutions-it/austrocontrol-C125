@@ -119,6 +119,10 @@
               "description": "Deutsch"
             }
           }
+        },
+        "measurement": {
+          "lengthFormula": "vincenty",
+          "showLabel": true
         }
       }
   },

@@ -17,7 +17,7 @@ const measureUtils = require('../../MapStore2/web/client/utils/MeasureUtils');
 const localeUtils = require('../../MapStore2/web/client/utils/LocaleUtils');
 const {isEqual, round} = require('lodash');
 
-require('./measure.css');
+require('../../MapStore2/web/client/components/mapcontrols/measure/measure.css');
 
 class MeasureComponent extends React.Component {
     static propTypes = {
