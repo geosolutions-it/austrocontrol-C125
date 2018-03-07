@@ -1,0 +1,9 @@
+{
+    "locale": "de-DE",
+    "messages": {
+        "measureComponent": {
+            "addAsAnnotaion": "Als Anmerkung hinzufügen",
+            "newMeasure": "Neue Anmerkung"
+        }
+    }
+}
