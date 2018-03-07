@@ -144,6 +144,7 @@
                         </resources>
                     </configuration>
                 </execution>
+
                 <execution>
                     <id>translations</id>
                     <phase>process-classes</phase>
@@ -154,12 +155,6 @@
                         <outputDirectory>${basedir}/target/austrocontrol-ms2/MapStore2/web/client</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
-                            <resource>
-                                <directory>${basedir}/../js</directory>
-                                <includes>
-                                    <include>translations/*</include>
-                                </includes>
-                            </resource>
                             <resource>
                                 <directory>${basedir}/../MapStore2/web/client</directory>
                                 <includes>
@@ -176,11 +171,11 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/austrocontrol-ms2/MapStore2/web/client</outputDirectory>
+                        <outputDirectory>${basedir}/target/austrocontrol-ms2/</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
-                                <directory>${basedir}/../MapStore2/web/client</directory>
+                                <directory>${basedir}/../</directory>
                                 <includes>
                                     <include>translations/*</include>
                                 </includes>
@@ -188,6 +183,7 @@
                         </resources>
                     </configuration>
                 </execution>
+
                 <execution>
                     <id>CesiumJS-navigation</id>
                     <phase>process-classes</phase>
