@@ -52,7 +52,7 @@
             "validationErrors": {}
           }
         },
-		"catalog": {
+		    "catalog": {
           "default": {
             "newService": {
                 "url": "",
@@ -107,9 +107,21 @@
               }
             }
           }
+        },
+        "locales": {
+          "supportedLocales": {
+            "en": {
+              "code": "en-US",
+              "description": "English"
+            },
+            "de": {
+              "code": "de-DE",
+              "description": "Deutsch"
+            }
+          }
         }
       }
-    },
+  },
     "plugins": {
         "mobile": [{
                 "name": "Map",

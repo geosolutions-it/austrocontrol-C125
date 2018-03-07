@@ -12,7 +12,7 @@ const ConfigUtils = require('../MapStore2/web/client/utils/ConfigUtils');
  *
  * ConfigUtils.setConfigProp('translationsPath', ['./MapStore2/web/client/translations', './translations']);
  */
-ConfigUtils.setConfigProp('translationsPath', './MapStore2/web/client/translations');
+ConfigUtils.setConfigProp('translationsPath', ['./MapStore2/web/client/translations', './translations']);
 ConfigUtils.setConfigProp('themePrefix', 'austrocontrol-ms2');
 
 /**
@@ -42,8 +42,8 @@ const appConfig = require('../MapStore2/web/client/product/appConfig');
 /**
  * Define a custom list of plugins with:
  *
- * const plugins = require('./plugins');
  */
-const plugins = require('../MapStore2/web/client/product/plugins');
+const plugins = require('./plugins');
+// const plugins = require('../MapStore2/web/client/product/plugins');
 
 require('../MapStore2/web/client/product/main')(appConfig, plugins);
