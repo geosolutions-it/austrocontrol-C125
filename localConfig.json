@@ -278,7 +278,15 @@
                     }
                 }
             }, "Home", "FeatureEditor",
-            "WFSDownload",
+            {
+              "name": "WFSDownload",
+              "cfg": {
+                "srsList": [
+                    {"name": "EPSG:4326", "label": "WGS84"},
+                    {"name": "native", "label": "Native"}
+                  ]
+              }
+            },
             {
               "name": "QueryPanel",
               "cfg": {
