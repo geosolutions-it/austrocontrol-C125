@@ -104,8 +104,8 @@ class MeasureComponent extends React.Component {
         lengthLabel: <Message msgId="measureComponent.lengthLabel"/>,
         areaLabel: <Message msgId="measureComponent.areaLabel"/>,
         bearingLabel: <Message msgId="measureComponent.bearingLabel"/>,
-        formatLength: (uom, value) => measureUtils.getFormattedLength(uom, value),
-        formatArea: (uom, value) => measureUtils.getFormattedArea(uom, value),
+        formatLength: (uom, value) => measureUtils.convertUom(value, "m", uom),
+        formatArea: (uom, value) => measureUtils.convertUom(value, "sqm", uom),
         formatBearing: (value) => measureUtils.getFormattedBearingValue(round(value || 0, 6)),
         onChangeUom: () => {}
     };

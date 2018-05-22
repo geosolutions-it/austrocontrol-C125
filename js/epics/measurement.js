@@ -9,7 +9,7 @@
 const Rx = require('rxjs');
 const {ADD_ANNOTATION} = require('../actions/measurement');
 const {DEFAULT_ANNOTATIONS_STYLES, STYLE_TEXT} = require('../../MapStore2/web/client/utils/AnnotationsUtils');
-const {getFormattedLength, getFormattedArea, getFormattedBearingValue} = require('../../MapStore2/web/client/utils/MeasureUtils');
+const {convertUom, getFormattedBearingValue} = require('../../MapStore2/web/client/utils/MeasureUtils');
 const LocaleUtils = require('../../MapStore2/web/client/utils/LocaleUtils');
 const {addLayer, updateNode} = require('../../MapStore2/web/client/actions/layers');
 const {toggleControl} = require('../../MapStore2/web/client/actions/controls');
@@ -21,8 +21,8 @@ const {annotationsLayerSelector} = require('../../MapStore2/web/client/selectors
 const {editAnnotation} = require('../../MapStore2/web/client/actions/annotations');
 
 const formattedValue = (uom, value) => ({
-    "length": round(getFormattedLength(uom, value) || 0, 2) + " " + uom,
-    "area": round(getFormattedArea(uom, value) || 0, 2) + " " + uom,
+    "length": round(convertUom(value, "m", uom) || 0, 2) + " " + uom,
+    "area": round(convertUom(value, "sqm", uom) || 0, 2) + " " + uom,
     "bearing": getFormattedBearingValue(round(value || 0, 6)).toString()
 });
 const convertMeasureToGeoJSON = (measureGeometry, value, uom, id, measureTool, state) => {
