@@ -509,7 +509,13 @@
                 "className": "navbar shadow navbar-home"
             }
         }, "ManagerMenu", "Login", "Language", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["Header", "Fork", "MapSearch", "HomeDescription", "GridContainer", "CreateNewMap",
+        "maps": [ "HomeDescription", "MapSearch", "GridContainer",
+          {
+            "name":"CreateNewMap",
+            "cfg": {
+              "showNewDashboard": false
+            }
+          },
           {
             "name": "Maps",
             "cfg": {
@@ -518,7 +524,7 @@
                 "limit": 12
               }
             }
-          }, "Examples", "Footer", {
+          }, {
           "name": "Cookie",
           "cfg": {
             "externalCookieUrl" : "",
