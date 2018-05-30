@@ -304,7 +304,7 @@
                       {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
                   ]
               }
-            }, {
+            }, "DateFilter", {
                 "name": "TOC",
                 "cfg": {
                     "activateQueryTool": true,
