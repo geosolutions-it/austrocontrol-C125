@@ -17,7 +17,6 @@
     "initialMapFilter": "",
     "ignoreMobileCss": false,
     "useAuthenticationRules": true,
-    "loadAfterTheme": true,
     "defaultMapOptions": {
       "cesium": {
           "flyTo": true,
@@ -38,19 +37,20 @@
       {"name": "browser", "path": "browser"},
       {"name": "featuregridmode", "path": "featuregrid.mode"}],
     "projectionDefs": [],
+    "loadAfterTheme": true,
     "initialState": {
       "defaultState": {
+        "maptype": {
+          "mapType": "openlayers"
+        },
+        "maps": {
+          "mapType": "openlayers"
+        },
         "annotations": {
           "config": {
             "multiGeometry": true,
             "validationErrors": {}
           }
-        },
-		"maptype": {
-          "mapType": "openlayers"
-        },
-        "maps": {
-          "mapType": "openlayers"
         },
 		    "catalog": {
           "default": {
@@ -130,14 +130,6 @@
         "mobile": [{
                 "name": "Map",
                 "cfg": {
-                    "mapOptions": {
-                      "openlayers": {
-                        "interactions": {
-                          "pinchRotate": false,
-                          "altShiftDragRotate": false
-                        }
-                      }
-                    },
                     "tools": ["locate"]
                 }
             }, "Version", "DrawerMenu",
@@ -159,13 +151,16 @@
                 "name": "Identify",
                 "showIn": ["Settings"],
                 "cfg": {
-                    "showFullscreen": true,
-                    "position": "bottom",
-                    "size": 0.5,
-                    "fluid": true,
+                    "panelClassName": "mapstore-mobile-identify",
+                    "fullscreen": true,
+                    "draggable": false,
+                    "collapsible": true,
                     "viewerOptions": {
-                        "container": "{context.ReactSwipe}"
-                    }
+                        "container": "{context.ReactSwipe}",
+                        "header": "{context.SwipeHeader}",
+                        "collapsible": false
+                    },
+                    "bodyClass": "mobile-feature-info"
                 }
             }, {
                 "name": "Locate",
@@ -179,11 +174,6 @@
                 "cfg": {
                     "activateMapTitle": false,
                     "activateSortLayer": false
-                }
-            }, {
-                "name": "TOCItemsSettings",
-                "cfg": {
-                    "width": 300
                 }
             }, {
                 "name": "Tutorial",
@@ -227,18 +217,20 @@
                 "externalCookieUrl" : "",
                 "declineUrl" : "http://www.google.com"
               }
+            }, {
+                "name": "TOCItemsSettings",
+                "cfg": {
+                          "width": 300
+                }
             }
         ],
-        "desktop": [ "Details",
+
+        "desktop": [
           {
             "name": "Map",
             "cfg": {
               "mapOptions": {
                 "openlayers": {
-                  "interactions": {
-                    "pinchRotate": false,
-                    "altShiftDragRotate": false
-                  },
                   "attribution": {
                     "container": "#mapstore-map-footer-container"
                   }
@@ -259,8 +251,17 @@
             {
                 "name": "Identify",
                 "cfg": {
+                    "panelClassName": "mapstore-right-panel modal-content",
+                    "draggable": false,
+                    "collapsible": true,
                     "viewerOptions": {
-                        "container": "{context.ReactSwipe}"
+                        "container": "{context.ReactSwipe}",
+                        "header": "{context.SwipeHeader}",
+                        "draggable": false,
+                        "collapsible": false,
+                        "headerOptions": {
+                            "useButtons": true
+                        }
                     }
                 },
                 "override": {
@@ -322,9 +323,7 @@
                         {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
                     ]
                 }
-            },
-            "TOCItemsSettings",
-            "Tutorial", "MapFooter", {
+            }, "Tutorial", "MapFooter", {
                 "name": "Measure"
             }, "Print", "ShapeFile", {
                 "name": "Settings",
@@ -395,7 +394,7 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets"
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets", "TOCItemsSettings"
         ],
         "embedded": [{
                 "name": "Map",
@@ -403,10 +402,6 @@
                     "tools": ["locate"],
                   "mapOptions": {
                     "openlayers": {
-                      "interactions": {
-                        "pinchRotate": false,
-                        "altShiftDragRotate": false
-                      },
                       "attribution": {
                         "container": "#mapstore-map-footer-container"
                       }
@@ -442,13 +437,16 @@
               }, {
                 "name": "Identify",
                 "cfg": {
-                    "showFullscreen": true,
-                    "position": "bottom",
-                    "size": 0.5,
-                    "fluid": true,
+                    "panelClassName": "mapstore-mobile-identify",
+                    "fullscreen": true,
+                    "draggable": false,
+                    "collapsible": true,
                     "viewerOptions": {
-                        "container": "{context.ReactSwipe}"
-                    }
+                        "container": "{context.ReactSwipe}",
+                        "header": "{context.SwipeHeader}",
+                        "collapsible": false
+                    },
+                    "bodyClass": "mobile-feature-info"
                 }
             }, {
                 "name": "ZoomAll",
@@ -533,33 +531,6 @@
             "declineUrl" : "http://www.google.com"
           }
         }],
-        "dashboard": [{
-            "name": "OmniBar",
-            "cfg": {
-                "containerPosition": "header",
-                "className": "navbar shadow navbar-home"
-            }
-        }, "ManagerMenu", "Login", "Language", "NavMenu", "Attribution", "Home", {
-          "name": "DashboardEditor",
-          "cfg": {
-             "catalog": {
-              "url": "https://demo.geo-solutions.it/geoserver/csw",
-              "type": "csw",
-              "title": "Demo CSW Service",
-              "autoload": true
-            },
-            "containerPosition": "columns"
-          }
-        }, {
-          "name": "QueryPanel",
-          "cfg": {
-            "toolsOptions": {
-              "hideCrossLayer": true,
-              "hideSpatialFilter": true
-            },
-            "containerPosition": "columns"
-          }
-        }, "Dashboard", "Notifications"],
         "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"]
     }
 }
