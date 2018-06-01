@@ -7,8 +7,12 @@
  */
 
 const SET_EFFECTIVE_DATES = "DATEFILTER:SET_EFFECTIVE_DATES";
+const SET_DATE = "DATEFILTER:SET_DATE";
 const setEffectiveDates = (dates) => ({type: SET_EFFECTIVE_DATES, dates});
+const setDate = (date) => ({ type: SET_DATE, date });
 module.exports = {
     SET_EFFECTIVE_DATES,
-    setEffectiveDates
+    setEffectiveDates,
+    SET_DATE,
+    setDate
 };

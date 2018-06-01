@@ -8,8 +8,8 @@
 
 const expect = require('expect');
 const dateFilter = require('../dateFilter');
-const { setEffectiveDates } = require('../../actions/dateFilter');
-const { getEffectiveDates, getEffectiveDatesURL } = require('../../selectors/dateFilter');
+const { setEffectiveDates, setDate } = require('../../actions/dateFilter');
+const { getEffectiveDates, getEffectiveDatesURL, getDate } = require('../../selectors/dateFilter');
 
 describe('dateFilter reducer', () => {
     it('setEffectiveDates sets dates', () => {
@@ -38,5 +38,11 @@ describe('dateFilter reducer', () => {
         const state = dateFilter(undefined, {type: "NOTHING"});
         expect(state).toExist();
         expect(getEffectiveDatesURL({ dateFilter: state })).toBe('assets/config/effectiveDates.json');
+    });
+    it('dateFilter setDate', () => {
+        const action = setDate("2010-01-01T00:00:00.000Z");
+        const state = dateFilter( undefined, action);
+        expect(state).toExist();
+        expect(getDate({dateFilter: state}));
     });
 });

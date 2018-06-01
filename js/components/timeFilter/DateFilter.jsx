@@ -11,11 +11,14 @@ const PropTypes = require('prop-types');
 const moment = require('moment');
 const momentLocalizer = require('react-widgets/lib/localizers/moment');
 const Toolbar = require('../../../MapStore2/web/client/components/misc/toolbar/Toolbar');
+const Message = require('../../../MapStore2/web/client/plugins/locale/Message');
+const localizedProps = require('../../../MapStore2/web/client/components/misc/enhancers/localizedProps');
+
 const {head} = require('lodash');
 const {Calendar} = require('react-widgets');
 const {ListGroup, ListGroupItem, Glyphicon: GlyphiconRB, Button: ButtonRB} = require('react-bootstrap');
 const BorderLayout = require('../../../MapStore2/web/client/components/layout/BorderLayout');
-const Filter = require('../../../MapStore2/web/client/components/misc/Filter');
+const Filter = localizedProps('filterPlaceholder')(require('../../../MapStore2/web/client/components/misc/Filter'));
 const SideCard = require('./SideCardM');
 momentLocalizer(moment);
 const tooltip = require('../../../MapStore2/web/client/components/misc/enhancers/tooltip');
@@ -35,6 +38,7 @@ const DayComponent = ({ highlighted = [], date, label }) => head(highlighted.fil
 class DateFilter extends React.Component {
     static propTypes = {
         effectiveDates: PropTypes.array,
+        date: PropTypes.instanceOf(Date),
         onToggleFilter: PropTypes.func,
         hideLayers: PropTypes.bool,
         expanded: PropTypes.bool,
@@ -70,29 +74,29 @@ class DateFilter extends React.Component {
                 }}>
                 {!this.props.expanded && this.props.toggle && !this.props.dropUp && <Button
                     bsStyle="primary"
-                    tooltip="Expand date filter"
+                    tooltipId="dateFilter.expandToFilter"
                     tooltipPosition="bottom"
                     className="square-button shadow"
                     onClick={() => this.props.setExpanded(true)}>
                     <Glyphicon glyph="calendar"/>
                 </Button>}
                 {!(!this.props.expanded && this.props.toggle) && <SideCard
-                    title={this.state.date ? 'Effective date' : 'Date not selected'}
+                    title={<Message msgId={this.props.date ? 'dateFilter.effectiveDate' : 'dateFilter.dateNotSelected'}/>}
                     dropUp={this.props.dropUp}
                     preview={
                         this.props.toggle ? <Glyphicon
-                            tooltip="Collapse date filter"
+                            tooltipId="dateFilter.collapseDateFilter"
                             tooltipPosition="bottom"
                             glyph="resize-small glyph-btn"
                             onClick={() => this.props.setExpanded(false)}
                             style={{
-                                fontSize: 12
+                                fontSize: 14
                             }}/> : null
                     }
                     description={
-                        this.state.date && <div style={{display: 'flex', margin: 0}}>
+                        this.props.date && <div style={{display: 'flex', margin: 0}}>
                             <div style={{flex: 1, margin: 0}}>
-                                {moment(this.state.date).format('DD MMM YYYY')}
+                                {moment(this.props.date).format('DD MMM YYYY')}
                             </div>
                             <div style={{
                                 margin: 0,
@@ -122,7 +126,7 @@ class DateFilter extends React.Component {
                         <div>
                             {this.state.calendar && <Calendar
                                 dayComponent={props => <DayComponent highlighted={this.props.effectiveDates} {...props}/>}
-                                value={this.state.date}
+                                value={this.props.date}
                                 onChange={date => this.setDate(date)}/>}
                             {this.state.datesList &&
                             <BorderLayout
@@ -130,7 +134,7 @@ class DateFilter extends React.Component {
                                     <div style={{margin: '0 8px 8px 8px'}}>
                                         <Filter
                                             filterText={this.state.filterText}
-                                            filterPlaceholder="Filter dates"
+                                            filterPlaceholder="dateFilter.filterDates"
                                             onFilter={filterText => this.setState({filterText})}/>
                                     </div>
                                 }>
@@ -148,7 +152,7 @@ class DateFilter extends React.Component {
                                         )
                                         .map(date => (
                                             <ListGroupItem
-                                                active={date.value === moment(this.state.date).format('MM/DD/YYYY')}
+                                                active={date.value === moment(this.props.date).format('MM/DD/YYYY')}
                                                 onClick={() => this.setDate(date.value && moment(date.value, 'MM/DD/YYYY').toDate() || null)}>
                                                 <div style={{display: 'flex'}}>
                                                     <div style={{flex: 1}}>
@@ -176,20 +180,20 @@ class DateFilter extends React.Component {
                                     glyph: 'calendar',
                                     active: !!this.state.calendar,
                                     bsStyle: this.state.calendar ? 'success' : 'primary',
-                                    tooltip: 'Select a date from calendar',
+                                    tooltipId: 'dateFilter.selectDateFromCalendar',
                                     onClick: () => this.setState({ calendar: !this.state.calendar, datesList: false})
                                 },
                                 {
                                     glyph: 'list',
                                     active: !!this.state.datesList,
-                                    tooltip: 'Select a date from predefined list',
+                                    tooltipId: 'dateFilter.selectADateFromAPredefinedList',
                                     bsStyle: this.state.datesList ? 'success' : 'primary',
                                     onClick: () => this.setState({ datesList: !this.state.datesList, calendar: false })
                                 },
                                 {
                                     glyph: this.state.hideLayers ? 'eye-close' : 'eye-open',
                                     active: !!this.state.hideLayers,
-                                    tooltip: this.state.hideLayers ? 'Show layers without time data' : 'Hide layers without time data',
+                                    tooltipId: this.state.hideLayers ? 'dateFilter.showLayersWithoutTimeData' : 'dateFilter.hideLayerWithoutTimeData',
                                     bsStyle: this.state.hideLayers ? 'success' : 'primary',
                                     onClick: () => {
                                         this.props.onToggleFilter(!this.props.hideLayers);
@@ -201,11 +205,12 @@ class DateFilter extends React.Component {
                 />}
                 {!this.props.expanded && this.props.toggle && this.props.dropUp && <Button
                     bsStyle="primary"
-                    tooltip="Expand date filter"
+                    tooltipId={"dateFilter.expandDateFilter"}
                     tooltipPosition="bottom"
                     className="square-button shadow"
                     style={{
-                        alignSelf: 'end'
+                        alignSelf: 'end',
+                        zIndex: 10
                     }}
                     onClick={() => this.props.setExpanded(true)}>
                     <Glyphicon glyph="calendar"/>

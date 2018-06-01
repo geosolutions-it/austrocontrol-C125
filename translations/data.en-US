@@ -4,6 +4,18 @@
         "measureComponent": {
             "addAsAnnotaion": "Add as annotation",
             "newMeasure": "New annotation"
+        },
+        "dateFilter": {
+            "expandToFilter": "Expand date filter",
+            "effectiveDate": "Effective date",
+            "dateNotSelected": "Date not selected",
+            "collapseDateFilter": "Collapse date filter",
+            "filterDates": "Filter dates",
+            "expandDateFilter": "Expand date filter",
+            "selectDateFromCalendar": "Select a date from calendar",
+            "selectADateFromAPredefinedList": "Select a date from predefined list",
+            "showLayersWithoutTimeData": "Show layers without time data",
+            "hideLayerWithoutTimeData": "Hide layers without time data"
         }
     }
 }

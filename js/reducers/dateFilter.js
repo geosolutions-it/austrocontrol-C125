@@ -7,13 +7,16 @@
  */
 
 const { set } = require('../../MapStore2/web/client/utils/ImmutableUtils');
-const {SET_EFFECTIVE_DATES} = require('../actions/dateFilter');
+const { SET_EFFECTIVE_DATES, SET_DATE} = require('../actions/dateFilter');
+
 module.exports = ( state = {
     effectiveDatesURL: "assets/config/effectiveDates.json"
 }, action ) => {
     switch (action.type) {
         case SET_EFFECTIVE_DATES:
             return set( "effectiveDates", action.dates, state);
+        case SET_DATE:
+            return set("date", action.date, state);
         default:
             return state;
     }

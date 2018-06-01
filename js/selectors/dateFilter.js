@@ -9,5 +9,6 @@
 const {get} = require('lodash');
 module.exports = ({
     getEffectiveDates: state => get(state, "dateFilter.effectiveDates"),
-    getEffectiveDatesURL: state => get(state, "dateFilter.effectiveDatesURL")
+    getEffectiveDatesURL: state => get(state, "dateFilter.effectiveDatesURL"),
+    getDate: state => get(state, "dateFilter.date")
 });
