@@ -510,28 +510,23 @@
             "cfg": {
                 "className": "navbar shadow navbar-home"
             }
-        }, "ManagerMenu", "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "Fork", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
-
+        }, "ManagerMenu", "Login", "Language", "Attribution", "ScrollTop", "Notifications"],
+        "maps": [ "HomeDescription", "MapSearch", "GridContainer",
+          {
+            "name":"CreateNewMap",
+            "cfg": {
+              "showNewDashboard": false
+            }
+          },
           {
             "name": "Maps",
             "cfg": {
               "mapsOptions": {
                 "start": 0,
                 "limit": 12
-              },
-              "fluid": true
+              }
               }
           }, {
-            "name": "Dashboards",
-            "cfg": {
-              "mapsOptions": {
-                "start": 0,
-                "limit": 12
-              },
-              "fluid": true
-            }
-          }, "MailingLists", "Footer", {
           "name": "Cookie",
           "cfg": {
             "externalCookieUrl" : "",
