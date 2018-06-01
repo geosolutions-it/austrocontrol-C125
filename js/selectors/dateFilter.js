@@ -7,8 +7,13 @@
  */
 
 const {get} = require('lodash');
+const { getLayersWithDimension } = require('../../MapStore2/web/client/selectors/layers');
+const getDimensionName = state => get(state, "dateFilter.dimensionName") || "time";
+
 module.exports = ({
     getEffectiveDates: state => get(state, "dateFilter.effectiveDates"),
     getEffectiveDatesURL: state => get(state, "dateFilter.effectiveDatesURL"),
-    getDate: state => get(state, "dateFilter.date")
+    getDate: state => get(state, "dateFilter.date"),
+    getDimensionName: state => get(state, "dateFilter.dimensionName") || "time",
+    showDateFilter: state => get(state, "dateFilter.alwaysVisible") || getLayersWithDimension(state, getDimensionName(state)).length > 0
 });

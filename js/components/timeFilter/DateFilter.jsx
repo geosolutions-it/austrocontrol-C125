@@ -41,6 +41,7 @@ class DateFilter extends React.Component {
         date: PropTypes.instanceOf(Date),
         onToggleFilter: PropTypes.func,
         hideLayers: PropTypes.bool,
+        showLayerVisibilityToggle: PropTypes.bool,
         expanded: PropTypes.bool,
         setExpanded: PropTypes.func,
         onSetDate: PropTypes.func,
@@ -192,6 +193,7 @@ class DateFilter extends React.Component {
                                 },
                                 {
                                     glyph: this.state.hideLayers ? 'eye-close' : 'eye-open',
+                                    visible: !!this.props.showLayerVisibilityToggle,
                                     active: !!this.state.hideLayers,
                                     tooltipId: this.state.hideLayers ? 'dateFilter.showLayersWithoutTimeData' : 'dateFilter.hideLayerWithoutTimeData',
                                     bsStyle: this.state.hideLayers ? 'success' : 'primary',
