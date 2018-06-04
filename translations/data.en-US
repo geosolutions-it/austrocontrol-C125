@@ -6,6 +6,7 @@
             "newMeasure": "New annotation"
         },
         "dateFilter": {
+            "supportedDateFilter": "Supported date filter",
             "expandToFilter": "Expand date filter",
             "effectiveDate": "Effective date",
             "dateNotSelected": "Date not selected",

@@ -6,6 +6,7 @@
             "newMeasure": "Neue Anmerkung"
         },
          "dateFilter": {
+            "supportedDateFilter": "unterstützter Datumsfilter",
             "expandToFilter": "Datumsfilter erweitern",
             "effectiveDate": "Datum des Inkrafttretens",
             "dateNotSelected": "Datum nicht ausgewählt",
