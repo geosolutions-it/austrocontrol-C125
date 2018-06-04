@@ -8,8 +8,8 @@
 
 const expect = require('expect');
 const dateFilter = require('../dateFilter');
-const { setEffectiveDates, setDate } = require('../../actions/dateFilter');
-const { getEffectiveDates, getEffectiveDatesURL, getDate } = require('../../selectors/dateFilter');
+const { setEffectiveDates, setDate, toggleLayerVisibility } = require('../../actions/dateFilter');
+const { getEffectiveDates, getEffectiveDatesURL, getHideLayers, getDate } = require('../../selectors/dateFilter');
 
 describe('dateFilter reducer', () => {
     it('setEffectiveDates sets dates', () => {
@@ -44,5 +44,11 @@ describe('dateFilter reducer', () => {
         const state = dateFilter( undefined, action);
         expect(state).toExist();
         expect(getDate({dateFilter: state}));
+    });
+    it('dateFilter toggleLayerVisibility', () => {
+        const action = toggleLayerVisibility(true);
+        const state = dateFilter(undefined, action);
+        expect(state).toExist();
+        expect(getHideLayers({ dateFilter: state })).toBe(true);
     });
 });

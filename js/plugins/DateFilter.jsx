@@ -6,15 +6,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 const assign = require('object-assign');
+const { connect } = require('react-redux');
 const {compose, branch, renderNothing} = require('recompose');
 const {createSelector} = require('reselect');
-const { mapLayoutValuesSelector } = require('../../MapStore2/web/client/selectors/maplayout');
-const { getEffectiveDates, getDate, showDateFilter } = require('../selectors/dateFilter');
-const {setDate} = require('../actions/dateFilter');
 
-const {connect} = require('react-redux');
+
+const {setDate, toggleLayerVisibility} = require('../actions/dateFilter');
+const { getEffectiveDates, getDate, showDateFilter, getHideLayers } = require('../selectors/dateFilter');
+const { mapLayoutValuesSelector } = require('../../MapStore2/web/client/selectors/maplayout');
+
 
 const enhanceDateFilter = require('../components/timeFilter/enhancers/dateFilter');
+
+/**
+ * Floating widget that allows to filter layers selecting a date. Many of the settings can be set
+ * in the initial state of the component.
+ * @name DateFilter
+ * @memberof plugins
+ * @prop cfg.showLayerVisibilityToggle hides / shows layer visibility toggle button.
+ */
 const DateFilterPlugin = compose(
     connect(
         createSelector(
@@ -22,17 +32,20 @@ const DateFilterPlugin = compose(
             getEffectiveDates,
             getDate,
             showDateFilter,
-            ({ left = 0 }, effectiveDates, date, show) => ({
+            getHideLayers,
+            ({ left = 0 }, effectiveDates, date, show, hideLayers) => ({
                 effectiveDates,
                 date,
                 show,
+                hideLayers,
                 style: {
                     transition: "margin 0.3s ease-out",
                     marginLeft: (left || 50) + 5
                 }
             })
         ), {
-            onSetDate: setDate
+            onSetDate: setDate,
+            onToggleFilter: toggleLayerVisibility
         }
     ),
     branch(

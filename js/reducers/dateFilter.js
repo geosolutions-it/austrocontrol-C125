@@ -7,8 +7,19 @@
  */
 
 const { set } = require('../../MapStore2/web/client/utils/ImmutableUtils');
-const { SET_EFFECTIVE_DATES, SET_DATE} = require('../actions/dateFilter');
+const { SET_EFFECTIVE_DATES, SET_DATE, TOGGLE_LAYER_VISIBILITY} = require('../actions/dateFilter');
 
+/**
+ * Reducer to manage the state of DateFilter plugin.
+ * ```
+ * effectiveDatesURL: "assets/config/effectiveDates.json" // URL of effectiveDates
+ * dimensionName: // if not present, time is used
+ * ```
+ * @name dateFilter
+ * @memberof reducers
+ * @param {object} state old state
+ * @param {object} action action. Intercepts actions from dateFilter action creators
+ */
 module.exports = ( state = {
     effectiveDatesURL: "assets/config/effectiveDates.json"
 }, action ) => {
@@ -17,6 +28,8 @@ module.exports = ( state = {
             return set( "effectiveDates", action.dates, state);
         case SET_DATE:
             return set("date", action.date, state);
+        case TOGGLE_LAYER_VISIBILITY:
+            return set("hideLayers", action.hide, state);
         default:
             return state;
     }

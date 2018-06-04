@@ -53,6 +53,7 @@ class DateFilter extends React.Component {
 
     static defaultProps = {
         effectiveDates: [],
+        showLayerVisibilityToggle: true,
         onToggleFilter: () => {},
         onSetDate: () => {},
         width: 350,
@@ -192,11 +193,11 @@ class DateFilter extends React.Component {
                                     onClick: () => this.setState({ datesList: !this.state.datesList, calendar: false })
                                 },
                                 {
-                                    glyph: this.state.hideLayers ? 'eye-close' : 'eye-open',
+                                    glyph: this.props.hideLayers ? 'eye-close' : 'eye-open',
                                     visible: !!this.props.showLayerVisibilityToggle,
-                                    active: !!this.state.hideLayers,
-                                    tooltipId: this.state.hideLayers ? 'dateFilter.showLayersWithoutTimeData' : 'dateFilter.hideLayerWithoutTimeData',
-                                    bsStyle: this.state.hideLayers ? 'success' : 'primary',
+                                    active: !!this.props.hideLayers,
+                                    tooltipId: this.props.hideLayers ? 'dateFilter.showLayersWithoutTimeData' : 'dateFilter.hideLayerWithoutTimeData',
+                                    bsStyle: this.props.hideLayers ? 'success' : 'primary',
                                     onClick: () => {
                                         this.props.onToggleFilter(!this.props.hideLayers);
                                     }

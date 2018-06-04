@@ -15,5 +15,6 @@ module.exports = ({
     getEffectiveDatesURL: state => get(state, "dateFilter.effectiveDatesURL"),
     getDate: state => get(state, "dateFilter.date"),
     getDimensionName: state => get(state, "dateFilter.dimensionName") || "time",
+    getHideLayers: state => get(state, "dateFilter.hideLayers") || false,
     showDateFilter: state => get(state, "dateFilter.alwaysVisible") || getLayersWithDimension(state, getDimensionName(state)).length > 0
 });
