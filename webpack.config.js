@@ -26,11 +26,11 @@ module.exports = assign({}, require('./MapStore2/buildConfig')(
                 target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2"
             },
             '/pdf': {
-                target: "https://dev.mapstore2.geo-solutions.it/mapstore",
+                target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2",
                 secure: false
             },
-            '/mapstore/pdf': {
-                target: "https://dev.mapstore2.geo-solutions.it",
+            '/austrocontrol-ms2/pdf': {
+                target: "http://austrocontrol.geo-solutions.it",
                 secure: false
             },
             '/proxy': {
