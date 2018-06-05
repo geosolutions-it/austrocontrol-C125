@@ -1,0 +1,57 @@
+{
+  "effectiveDates": [
+    {
+        "value": "02/24/2016",
+        "label": "24 Feb 2016",
+        "code": "AR 195"
+    }, {
+        "value": "02/25/2016",
+        "label": "25 Feb 2016",
+        "code": "AR 195"
+    }, {
+      "value": "02/26/2016",
+      "label": "26 Feb 2016",
+      "code": "AR 195"
+    },
+    {
+      "value": "02/27/2016",
+      "label": "27 Feb 2016",
+      "code": "AR 195"
+    },
+    {
+      "value": "02/28/2016",
+      "label": "28 Feb 2016",
+      "code": "AR 195"
+    },
+    {
+        "value": "06/28/2018",
+        "label": "28 Jun 2018",
+        "code": "AR 196"
+    },
+    {
+        "value": "08/16/2018",
+        "label": "16 Aug 2018",
+        "code": "AR 198"
+    },
+    {
+        "value": "09/13/2018",
+        "label": "13 Sep 2018",
+        "code": "AR 199"
+    },
+    {
+        "value": "10/11/2018",
+        "label": "11 Oct 2018",
+        "code": "AR 200"
+    },
+    {
+        "value": "11/08/2018",
+        "label": "8 Nov 2018",
+        "code": "AR 201"
+    },
+    {
+        "value": "12/06/2018",
+        "label": "6 Dec 2018",
+        "code": "AR 202"
+    }
+  ]
+}

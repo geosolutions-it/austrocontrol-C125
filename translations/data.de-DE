@@ -4,6 +4,19 @@
         "measureComponent": {
             "addAsAnnotaion": "Als Anmerkung hinzufügen",
             "newMeasure": "Neue Anmerkung"
+        },
+         "dateFilter": {
+            "supportedDateFilter": "unterstützter Datumsfilter",
+            "expandToFilter": "Datumsfilter erweitern",
+            "effectiveDate": "Datum des Inkrafttretens",
+            "dateNotSelected": "Datum nicht ausgewählt",
+            "collapseDateFilter": "Reduzieren Sie den Datumsfilter",
+            "filterDates": "Daten filtern",
+            "expandDateFilter": "Datumsfilter erweitern",
+            "selectDateFromCalendar": "Wählen Sie ein Datum aus dem Kalender",
+            "selectADateFromAPredefinedList": "Wählen Sie ein Datum aus der vordefinierten Liste",
+            "showLayersWithoutTimeData": "Ebenen ohne Zeitdaten anzeigen",
+            "hideLayerWithoutTimeData": "Ebenen ohne Zeitdaten ausblenden"
         }
     }
 }
