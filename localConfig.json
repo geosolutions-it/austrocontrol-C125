@@ -11,7 +11,7 @@
         ]
     },
     "geoStoreUrl": "rest/geostore/",
-    "printUrl": "https://dev.mapstore2.geo-solutions.it/mapstore/pdf/info.json",
+    "printUrl": "pdf/info.json",
     "bingApiKey": "AhuXBu7ipR1gNbBfXhtUAyCZ6rkC5PkWpxs2MnMRZ1ZupxQfivjLCch22ozKSCAn",
     "mapquestApiKey": "__API_KEY_MAPQUEST__",
     "initialMapFilter": "",
@@ -138,13 +138,13 @@
                 "cfg": {
                     "bottom": 25,
                     "dimensions": {
-                    "side": 65,
-                    "sidePreview": 65,
-                    "frame": 3,
-                    "margin": 5,
-                    "label": false,
-                    "vertical": true
-                   }
+                      "side": 65,
+                      "sidePreview": 65,
+                      "frame": 3,
+                      "margin": 5,
+                      "label": false,
+                      "vertical": true
+                    }
                 }
             },
             {
@@ -304,12 +304,30 @@
                       {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
                   ]
               }
-            }, {
+            }, "DateFilter", {
                 "name": "TOC",
                 "cfg": {
                     "activateQueryTool": true,
                     "activateDownloadTool": true,
                     "activateAddLayerButton": true,
+                    "layerOptions": {
+                      "indicators": [{
+                        "key": "dimension",
+                        "type": "dimension",
+                        "glyph": "calendar",
+                        "props": {
+                          "style": {
+                            "color": "#dddddd",
+                            "float": "right"
+                          },
+                          "tooltip": "dateFilter.supportedDateFilter",
+                          "placement": "bottom"
+                        },
+                        "condition": {
+                          "name": "time"
+                        }
+                      }]
+                    },
                     "spatialOperations": [
                         {"id": "INTERSECTS", "name": "queryform.spatialfilter.operations.intersects"},
                         {"id": "BBOX", "name": "queryform.spatialfilter.operations.bbox"},
@@ -523,7 +541,7 @@
                 "start": 0,
                 "limit": 12
               }
-            }
+              }
           }, {
           "name": "Cookie",
           "cfg": {
