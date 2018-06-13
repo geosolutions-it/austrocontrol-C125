@@ -122,7 +122,15 @@
         },
         "measurement": {
           "lengthFormula": "vincenty",
-          "showLabel": true
+          "showLabel": true,
+          "startEndPoint": {
+            "startPointOptions": {
+              "radius": 3
+            },
+            "endPointOptions": {
+              "radius": 3
+            }
+          }
         }
       }
   },
@@ -147,20 +155,18 @@
                     }
                 }
             },
+
             {
                 "name": "Identify",
                 "showIn": ["Settings"],
                 "cfg": {
-                    "panelClassName": "mapstore-mobile-identify",
-                    "fullscreen": true,
-                    "draggable": false,
-                    "collapsible": true,
+                    "showFullscreen": true,
+                    "position": "bottom",
+                    "size": 0.5,
+                    "fluid": true,
                     "viewerOptions": {
-                        "container": "{context.ReactSwipe}",
-                        "header": "{context.SwipeHeader}",
-                        "collapsible": false
-                    },
-                    "bodyClass": "mobile-feature-info"
+                        "container": "{context.ReactSwipe}"
+                    }
                 }
             }, {
                 "name": "Locate",
@@ -249,28 +255,6 @@
             }
           }, "AutoMapUpdate", "HelpLink", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
-                "name": "Identify",
-                "cfg": {
-                    "panelClassName": "mapstore-right-panel modal-content",
-                    "draggable": false,
-                    "collapsible": true,
-                    "viewerOptions": {
-                        "container": "{context.ReactSwipe}",
-                        "header": "{context.SwipeHeader}",
-                        "draggable": false,
-                        "collapsible": false,
-                        "headerOptions": {
-                            "useButtons": true
-                        }
-                    }
-                },
-                "override": {
-                  "Toolbar": {
-                    "position": 11
-                  }
-                }
-            },
-            {
                 "name": "Locate",
                 "override": {
                     "Toolbar": {
@@ -354,6 +338,18 @@
                     "wrap": true
                 }
             }, {
+                "name": "Identify",
+                "cfg": {
+                    "viewerOptions": {
+                        "container": "{context.ReactSwipe}"
+                    }
+                },
+                "override": {
+                  "Toolbar": {
+                    "position": 11
+                  }
+                }
+            },{
               "name": "About",
               "showIn": ["BurgerMenu"]
             }, {
@@ -455,16 +451,13 @@
               }, {
                 "name": "Identify",
                 "cfg": {
-                    "panelClassName": "mapstore-mobile-identify",
-                    "fullscreen": true,
-                    "draggable": false,
-                    "collapsible": true,
+                    "showFullscreen": true,
+                    "position": "bottom",
+                    "size": 0.5,
+                    "fluid": true,
                     "viewerOptions": {
-                        "container": "{context.ReactSwipe}",
-                        "header": "{context.SwipeHeader}",
-                        "collapsible": false
-                    },
-                    "bodyClass": "mobile-feature-info"
+                        "container": "{context.ReactSwipe}"
+                    }
                 }
             }, {
                 "name": "ZoomAll",
