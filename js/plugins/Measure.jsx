@@ -60,8 +60,11 @@ const Measure = connect(
 
 const {cancelRemoveAnnotation, confirmRemoveAnnotation, editAnnotation, removeAnnotation, cancelEditAnnotation,
     saveAnnotation, toggleAdd, validationError, removeAnnotationGeometry, toggleStyle, setStyle, restoreStyle,
-    cleanHighlight, cancelCloseAnnotations, confirmCloseAnnotations, stopDrawing, changeStyler, setUnsavedChanges,
-    toggleUnsavedChangesModal, changedProperties, setUnsavedStyle, toggleUnsavedStyleModal, addText, cancelText, saveText} =
+    cleanHighlight, cancelCloseAnnotations, confirmCloseAnnotations, startDrawing, changeStyler, setUnsavedChanges,
+    toggleUnsavedChangesModal, changedProperties, setUnsavedStyle, toggleUnsavedStyleModal, addText, download,
+    changeSelected, resetCoordEditor, changeRadius, changeText, toggleUnsavedGeometryModal, addNewFeature, setInvalidSelected,
+    highlightPoint, confirmDeleteFeature, toggleDeleteFtModal
+} =
     require('../../MapStore2/web/client/actions/annotations');
 const { zoomToExtent } = require('../../MapStore2/web/client/actions/map');
 const { annotationsInfoSelector } = require('../../MapStore2/web/client/selectors/annotations');
@@ -70,26 +73,35 @@ const commonEditorActions = {
     onEdit: editAnnotation,
     onCancelEdit: cancelEditAnnotation,
     onChangeStyler: changeStyler,
+    onConfirmDeleteFeature: confirmDeleteFeature,
     onCleanHighlight: cleanHighlight,
+    onHighlightPoint: highlightPoint,
     onError: validationError,
     onSave: saveAnnotation,
     onRemove: removeAnnotation,
     onAddGeometry: toggleAdd,
-    onCancelText: cancelText,
     onAddText: addText,
-    onSaveText: saveText,
     onSetUnsavedChanges: setUnsavedChanges,
     onSetUnsavedStyle: setUnsavedStyle,
     onChangeProperties: changedProperties,
+    onToggleDeleteFtModal: toggleDeleteFtModal,
     onToggleUnsavedChangesModal: toggleUnsavedChangesModal,
+    onToggleUnsavedGeometryModal: toggleUnsavedGeometryModal,
     onToggleUnsavedStyleModal: toggleUnsavedStyleModal,
+    onAddNewFeature: addNewFeature,
+    onResetCoordEditor: resetCoordEditor,
     onStyleGeometry: toggleStyle,
     onCancelStyle: restoreStyle,
+    onChangeSelected: changeSelected,
     onSaveStyle: toggleStyle,
     onSetStyle: setStyle,
-    onStopDrawing: stopDrawing,
+    onStartDrawing: startDrawing,
     onDeleteGeometry: removeAnnotationGeometry,
-    onZoom: zoomToExtent
+    onZoom: zoomToExtent,
+    onChangeRadius: changeRadius,
+    onSetInvalidSelected: setInvalidSelected,
+    onChangeText: changeText,
+    onDownload: download
 };
 
 const AnnotationsInfoViewer = connect(annotationsInfoSelector,

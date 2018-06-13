@@ -28,26 +28,33 @@ const formattedValue = (uom, value) => ({
 const convertMeasureToGeoJSON = (measureGeometry, value, uom, id, measureTool, state) => {
     const title = LocaleUtils.getMessageById(state.locale.messages, "measureComponent.newMeasure");
     return assign({}, {
-        type: "Feature",
-        geometry: {
-            type: "GeometryCollection",
-            geometries: [
-                measureGeometry,
-                {
-                    type: "MultiPoint",
-                    coordinates: measureGeometry.type === "LineString" ? [last(measureGeometry.coordinates)] : [last(measureGeometry.coordinates[0])]
+        type: "FeatureCollection",
+        features: [{
+                type: "Feature",
+                geometry: {
+                    type: "Point",
+                    coordinates: measureGeometry.type === "LineString" ? last(measureGeometry.coordinates) : last(measureGeometry.coordinates[0])
+                },
+                properties: {
+                    valueText: formattedValue(uom, value)[measureTool],
+                    isText: true,
+                    isValidFeature: true
                 }
-            ]
-        },
+            },
+            {
+                type: "Feature",
+                geometry: measureGeometry,
+                properties: {
+                    isValidFeature: true
+                }
+            }],
         properties: {
             id,
-            textValues: [formattedValue(uom, value)[measureTool]],
-            textGeometriesIndexes: [1],
             title,
             description: " " + formattedValue(uom, value)[measureTool]
         },
         style: {
-            type: "GeometryCollection",
+            type: "FeatureCollection",
             "Text": STYLE_TEXT,
             [measureGeometry.type]: DEFAULT_ANNOTATIONS_STYLES[measureGeometry.type]
         }
@@ -84,6 +91,6 @@ module.exports = (viewer) => ({
                     handleClickOnLayer: true
                 }),
                 editAnnotation(id)
-            ])).startWith(toggleControl("annotations"), toggleControl("measure"));
+            ])).startWith(toggleControl("annotations"));
         })
 });
