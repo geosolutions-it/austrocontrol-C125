@@ -201,7 +201,7 @@ class MeasureComponent extends React.Component {
                             <Col xs={6}>
                                 <Button
                                     onClick={() => { this.addAsAnnotation(); }}
-                                    disabled={this.props.measurement.feature && !this.props.measurement.feature.geometry}>
+                                    disabled={this.props.measurement.feature && this.props.measurement.feature.properties && this.props.measurement.feature.properties.disabled}>
                                     <Message msgId="measureComponent.addAsAnnotaion"/>
                                 </Button>
                             </Col>
