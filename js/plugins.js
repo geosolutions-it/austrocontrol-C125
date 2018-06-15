@@ -20,6 +20,8 @@ module.exports = {
         ToolbarPlugin: require('../MapStore2/web/client/plugins/Toolbar'),
         DrawerMenuPlugin: require('../MapStore2/web/client/plugins/DrawerMenu'),
         ShapeFilePlugin: require('../MapStore2/web/client/plugins/ShapeFile'),
+        MapExportPlugin: require('../MapStore2/web/client/plugins/MapExport'),
+        MapImportPlugin: require('../MapStore2/web/client/plugins/MapImport'),
         SnapshotPlugin: require('../MapStore2/web/client/plugins/Snapshot'),
         SettingsPlugin: require('../MapStore2/web/client/plugins/Settings'),
         ExpanderPlugin: require('../MapStore2/web/client/plugins/Expander'),
