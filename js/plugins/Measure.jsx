@@ -63,7 +63,7 @@ const {cancelRemoveAnnotation, confirmRemoveAnnotation, editAnnotation, removeAn
     cleanHighlight, cancelCloseAnnotations, confirmCloseAnnotations, startDrawing, changeStyler, setUnsavedChanges,
     toggleUnsavedChangesModal, changedProperties, setUnsavedStyle, toggleUnsavedStyleModal, addText, download,
     changeSelected, resetCoordEditor, changeRadius, changeText, toggleUnsavedGeometryModal, addNewFeature, setInvalidSelected,
-    highlightPoint, confirmDeleteFeature, toggleDeleteFtModal
+    highlightPoint, confirmDeleteFeature, toggleDeleteFtModal, changeFormat
 } =
     require('../../MapStore2/web/client/actions/annotations');
 const { zoomToExtent } = require('../../MapStore2/web/client/actions/map');
@@ -73,6 +73,7 @@ const commonEditorActions = {
     onEdit: editAnnotation,
     onCancelEdit: cancelEditAnnotation,
     onChangeStyler: changeStyler,
+    onChangeFormat: changeFormat,
     onConfirmDeleteFeature: confirmDeleteFeature,
     onCleanHighlight: cleanHighlight,
     onHighlightPoint: highlightPoint,
