@@ -50,7 +50,9 @@
           "config": {
             "multiGeometry": true,
             "validationErrors": {}
-          }
+          },
+          "format": "aeronautical",
+          "defaultTextAnnotation": "New"
         },
 		    "catalog": {
           "default": {
