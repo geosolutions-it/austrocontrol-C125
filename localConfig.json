@@ -255,7 +255,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "HelpLink", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
                 "name": "Locate",
                 "override": {
