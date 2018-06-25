@@ -13,8 +13,10 @@ const { LOCATION_CHANGE } = require('react-router-redux');
 const { updateLayerDimension, changeLayerProperties, CHANGE_LAYER_PROPERTIES } = require('../../MapStore2/web/client/actions/layers');
 const { setEffectiveDates, SET_DATE, toggleLayerVisibility, TOGGLE_LAYER_VISIBILITY } = require('../actions/dateFilter');
 const { error } = require('../../MapStore2/web/client/actions/notifications');
+const { closeIdentify, hideMapinfoMarker } = require('../../MapStore2/web/client/actions/mapInfo');
 
 const { getEffectiveDatesURL, getDimensionName } = require('../selectors/dateFilter');
+const { mapInfoRequestsSelector } = require('../../MapStore2/web/client/selectors/mapinfo');
 const { layersSelector, getLayersWithDimension, allBackgroundLayerSelector } = require('../../MapStore2/web/client/selectors/layers');
 
 
@@ -37,6 +39,11 @@ module.exports = {
             .switchMap(({ date }) =>
                 Rx.Observable.of(updateLayerDimension('time', toTimeInterval(date)))
             ),
+    resetGetFeatureInfoOnDateChange: (action$, {getState = () => {}} = {}) =>
+        action$
+            .ofType(SET_DATE)
+            .filter(() => mapInfoRequestsSelector(getState()).length > 0)
+            .switchMap(() => Rx.Observable.of(closeIdentify(), hideMapinfoMarker())),
     dateFilterToggleHideLayerVisibility: (action$, { getState = () => { } } = {}) =>
         action$.ofType(TOGGLE_LAYER_VISIBILITY)
             .filter(({ hide }) => hide)
