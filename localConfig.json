@@ -48,6 +48,7 @@
         },
         "annotations": {
           "config": {
+            "geometryEditorOptions": { "measureOptions": {"displayUom": "nm"}},
             "multiGeometry": true,
             "validationErrors": {}
           },
