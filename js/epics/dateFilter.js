@@ -16,7 +16,7 @@ const { error } = require('../../MapStore2/web/client/actions/notifications');
 const { closeIdentify, hideMapinfoMarker } = require('../../MapStore2/web/client/actions/mapInfo');
 
 const { getEffectiveDatesURL, getDimensionName } = require('../selectors/dateFilter');
-const { mapInfoRequestsSelector } = require('../../MapStore2/web/client/selectors/mapinfo');
+const { isMapInfoOpen } = require('../../MapStore2/web/client/selectors/mapinfo');
 const { layersSelector, getLayersWithDimension, allBackgroundLayerSelector } = require('../../MapStore2/web/client/selectors/layers');
 
 
@@ -42,7 +42,7 @@ module.exports = {
     resetGetFeatureInfoOnDateChange: (action$, {getState = () => {}} = {}) =>
         action$
             .ofType(SET_DATE)
-            .filter(() => mapInfoRequestsSelector(getState()).length > 0)
+            .filter(() => isMapInfoOpen(getState()))
             .switchMap(() => Rx.Observable.of(closeIdentify(), hideMapinfoMarker())),
     dateFilterToggleHideLayerVisibility: (action$, { getState = () => { } } = {}) =>
         action$.ofType(TOGGLE_LAYER_VISIBILITY)
