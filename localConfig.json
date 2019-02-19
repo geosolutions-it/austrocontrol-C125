@@ -198,7 +198,8 @@
             }, {
                 "name": "Search",
                 "cfg": {
-                    "withToggle": ["max-width: 768px", "min-width: 768px"]
+                  "showOptions": false,
+                  "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
             }, {
                 "name": "Toolbar",
@@ -257,7 +258,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations", "IdentifySettings",
             {
                 "name": "Locate",
                 "override": {
@@ -368,7 +369,7 @@
             }, {
                 "name": "Search",
                 "cfg": {
-                    "withToggle": ["max-width: 768px", "min-width: 768px"]
+                  "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
             }, {
                 "name": "Toolbar",

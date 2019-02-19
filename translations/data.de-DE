@@ -17,6 +17,7 @@
             "selectADateFromAPredefinedList": "Wählen Sie ein Datum aus der vordefinierten Liste",
             "showLayersWithoutTimeData": "Ebenen ohne Zeitdaten anzeigen",
             "hideLayerWithoutTimeData": "Ebenen ohne Zeitdaten ausblenden"
-        }
+        },
+        "showEmptyMessageGFI": "Nachricht mit leeren Ergebnissen anzeigen"
     }
 }

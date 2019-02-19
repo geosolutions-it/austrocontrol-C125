@@ -17,6 +17,7 @@
             "selectADateFromAPredefinedList": "Select a date from predefined list",
             "showLayersWithoutTimeData": "Show layers without time data",
             "hideLayerWithoutTimeData": "Hide layers without time data"
-        }
+        },
+        "showEmptyMessageGFI": "Show empty results message in GetFeatureInfo panel"
     }
 }
