@@ -198,7 +198,8 @@
             }, {
                 "name": "Search",
                 "cfg": {
-                    "withToggle": ["max-width: 768px", "min-width: 768px"]
+                  "showOptions": false,
+                  "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
             }, {
                 "name": "Toolbar",
@@ -368,7 +369,6 @@
             }, {
                 "name": "Search",
                 "cfg": {
-                  "showOptions": true,
                   "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
             }, {
