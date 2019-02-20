@@ -258,7 +258,14 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations", "IdentifySettings",
+          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
+            "name": "Annotations",
+            "cfg": {
+              "lineDashOptions": [{"value": "1 0"}, {"value":"10 50 30"}, {"value":"6 6"}, {"value":"20 20"}, {"value":"30 30"}],
+              "symbolsPath": "assets/symbols/",
+              "defaultShape": "CMP"
+            }
+          }, "IdentifySettings",
             {
                 "name": "Locate",
                 "override": {
@@ -413,7 +420,8 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets", "TOCItemsSettings"
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets", "TOCItemsSettings",
+            "FeedbackMask"
         ],
         "embedded": [{
                 "name": "Map",
