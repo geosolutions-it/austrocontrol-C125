@@ -420,8 +420,15 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets", "TOCItemsSettings",
-            "FeedbackMask"
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", 
+            {
+              "name": "Widgets",
+                "cfg": {
+                  "toolsOptions": {
+                    "showHide": true
+                  }
+                }
+            }, "TOCItemsSettings", "FeedbackMask"
         ],
         "embedded": [{
                 "name": "Map",
