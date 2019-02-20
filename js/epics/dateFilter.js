@@ -16,7 +16,7 @@ const { error } = require('../../MapStore2/web/client/actions/notifications');
 const { closeIdentify, hideMapinfoMarker } = require('../../MapStore2/web/client/actions/mapInfo');
 
 const { getEffectiveDatesURL, getDimensionName } = require('../selectors/dateFilter');
-const { isMapInfoOpen } = require('../../MapStore2/web/client/selectors/mapinfo');
+const { isMapInfoOpen } = require('../../MapStore2/web/client/selectors/mapInfo');
 const { layersSelector, getLayersWithDimension, allBackgroundLayerSelector } = require('../../MapStore2/web/client/selectors/layers');
 
 
