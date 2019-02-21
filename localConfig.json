@@ -420,12 +420,15 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", 
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "WidgetsTray",
             {
               "name": "Widgets",
                 "cfg": {
                   "toolsOptions": {
-                    "showHide": true
+                      "showPin": "user.role===ADMIN",
+                      "seeHidden": "user.role===ADMIN",
+                      "showHide": "user.role===ADMIN",
+                      "showCollapse": true
                   }
                 }
             }, "TOCItemsSettings", "FeedbackMask"
