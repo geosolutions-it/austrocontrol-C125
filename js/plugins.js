@@ -84,6 +84,7 @@ module.exports = {
         Dashboard: require('../MapStore2/web/client/plugins/Dashboard'),
         DashboardEditor: require('../MapStore2/web/client/plugins/DashboardEditor'),
         WidgetsPlugin: require('../MapStore2/web/client/plugins/Widgets'),
+        WidgetsTrayPlugin: require('../MapStore2/web/client/plugins/WidgetsTray'),
         WidgetsBuilderPlugin: require('../MapStore2/web/client/plugins/WidgetsBuilder'),
         FeedbackMaskPlugin: require('../MapStore2/web/client/plugins/FeedbackMask'),
         TOCItemsSettingsPlugin: require('../MapStore2/web/client/plugins/TOCItemsSettings')
