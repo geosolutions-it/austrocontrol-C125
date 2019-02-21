@@ -58,11 +58,11 @@ const Measure = connect(
     }, null, {pure: false})(MeasureDialog);
 
 
-const {cancelRemoveAnnotation, confirmRemoveAnnotation, editAnnotation, removeAnnotation, cancelEditAnnotation,
+const {cancelRemoveAnnotation, confirmRemoveAnnotation, openEditor, removeAnnotation, cancelEditAnnotation,
     saveAnnotation, toggleAdd, validationError, removeAnnotationGeometry, toggleStyle, setStyle, restoreStyle,
     cleanHighlight, cancelCloseAnnotations, confirmCloseAnnotations, startDrawing, changeStyler, setUnsavedChanges,
     toggleUnsavedChangesModal, changedProperties, setUnsavedStyle, toggleUnsavedStyleModal, addText, download,
-    changeSelected, resetCoordEditor, changeRadius, changeText, toggleUnsavedGeometryModal, addNewFeature, setInvalidSelected,
+    changeSelected, resetCoordEditor, changeRadius, changeText, toggleUnsavedGeometryModal, addNewFeature, setInvalidSelected, highlight,
     highlightPoint, confirmDeleteFeature, toggleDeleteFtModal, changeFormat
 } =
     require('../../MapStore2/web/client/actions/annotations');
@@ -70,13 +70,14 @@ const { zoomToExtent } = require('../../MapStore2/web/client/actions/map');
 const { annotationsInfoSelector } = require('../../MapStore2/web/client/selectors/annotations');
 
 const commonEditorActions = {
-    onEdit: editAnnotation,
+    onEdit: openEditor,
     onCancelEdit: cancelEditAnnotation,
     onChangeStyler: changeStyler,
     onChangeFormat: changeFormat,
     onConfirmDeleteFeature: confirmDeleteFeature,
     onCleanHighlight: cleanHighlight,
     onHighlightPoint: highlightPoint,
+    onHighlight: highlight,
     onError: validationError,
     onSave: saveAnnotation,
     onRemove: removeAnnotation,

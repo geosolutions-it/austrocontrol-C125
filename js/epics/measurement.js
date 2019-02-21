@@ -8,7 +8,7 @@
 
 const Rx = require('rxjs');
 const {ADD_ANNOTATION} = require('../actions/measurement');
-const {DEFAULT_ANNOTATIONS_STYLES, STYLE_TEXT} = require('../../MapStore2/web/client/utils/AnnotationsUtils');
+const {getStartEndPointsForLinestring, DEFAULT_ANNOTATIONS_STYLES, STYLE_TEXT} = require('../../MapStore2/web/client/utils/AnnotationsUtils');
 const {convertUom, getFormattedBearingValue} = require('../../MapStore2/web/client/utils/MeasureUtils');
 const LocaleUtils = require('../../MapStore2/web/client/utils/LocaleUtils');
 const {addLayer, updateNode} = require('../../MapStore2/web/client/actions/layers');
@@ -29,7 +29,8 @@ const convertMeasureToGeoJSON = (measureGeometry, value, uom, id, measureTool, s
     const title = LocaleUtils.getMessageById(state.locale.messages, "measureComponent.newMeasure");
     return assign({}, {
         type: "FeatureCollection",
-        features: [{
+        features: [
+            {
                 type: "Feature",
                 geometry: {
                     type: "Point",
@@ -38,26 +39,39 @@ const convertMeasureToGeoJSON = (measureGeometry, value, uom, id, measureTool, s
                 properties: {
                     valueText: formattedValue(uom, value)[measureTool],
                     isText: true,
-                    isValidFeature: true
-                }
+                    isValidFeature: true,
+                    id: uuidv1()
+                },
+                style: [{
+                    ...STYLE_TEXT,
+                    id: uuidv1(),
+                    filtering: true,
+                    title: "Text Style",
+                    type: "Text"
+                }]
             },
             {
                 type: "Feature",
                 geometry: measureGeometry,
                 properties: {
-                    isValidFeature: true
-                }
-            }],
+                    isValidFeature: true,
+                    id: uuidv1()
+                },
+                style: [{
+                    ...DEFAULT_ANNOTATIONS_STYLES[measureGeometry.type],
+                    type: measureGeometry.type,
+                    id: uuidv1(),
+                    title: `${measureGeometry.type} Style`,
+                    filtering: true
+                }].concat(measureGeometry.type === "LineString" ? getStartEndPointsForLinestring() : [])
+            }
+        ],
         properties: {
             id,
             title,
             description: " " + formattedValue(uom, value)[measureTool]
         },
-        style: {
-            type: "FeatureCollection",
-            "Text": STYLE_TEXT,
-            [measureGeometry.type]: DEFAULT_ANNOTATIONS_STYLES[measureGeometry.type]
-        }
+        style: {}
     });
 };
 
@@ -86,7 +100,7 @@ module.exports = (viewer) => ({
                     name: "Annotations",
                     rowViewer: viewer,
                     hideLoading: true,
-                    style: newFeature.style,
+                    style: null,
                     features: [newFeature],
                     handleClickOnLayer: true
                 }),
