@@ -1,5 +1,4 @@
 {
-
     "proxyUrl": {
         "url": "proxy/?url=",
         "useCORS": [
@@ -159,7 +158,6 @@
                     }
                 }
             },
-
             {
                 "name": "Identify",
                 "showIn": ["Settings"],
@@ -235,7 +233,6 @@
                 }
             }
         ],
-
         "desktop": [
           {
             "name": "Map",
@@ -338,7 +335,13 @@
                     ]
                 }
             }, "Tutorial", "MapFooter", {
-                "name": "Measure"
+                "name": "Measure",
+                "cfg": {
+                  "defaultOptions" : {
+                    "showAddAsAnnotation": true,
+                    "showCoordinateEditor": true
+                  }
+                }
             }, "Print", "MapExport", "MapImport", {
                 "name": "Settings",
                 "cfg": {
