@@ -14,7 +14,7 @@ module.exports = {
         IdentifyPlugin: require('../MapStore2/web/client/plugins/Identify'),
         TOCPlugin: require('../MapStore2/web/client/plugins/TOC'),
         BackgroundSwitcherPlugin: require('../MapStore2/web/client/plugins/BackgroundSwitcher'),
-        MeasurePlugin: require('./plugins/Measure'),
+        MeasurePlugin: require('../MapStore2/web/client/plugins/Measure'),
         DateFilter: require('./plugins/DateFilter'),
         IdentifySettingsPlugin: require('./plugins/IdentifySettings'),
         MapPlugin: require('../MapStore2/web/client/plugins/Map'),
