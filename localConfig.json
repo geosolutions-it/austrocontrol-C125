@@ -355,6 +355,7 @@
             }, {
                 "name": "Identify",
                 "cfg": {
+                    "showHighlightFeatureButton": true,
                     "viewerOptions": {
                         "container": "{context.ReactSwipe}"
                     }
