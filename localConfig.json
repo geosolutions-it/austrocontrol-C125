@@ -4,10 +4,7 @@
         "useCORS": [
             "http://demo.geo-solutions.it/geoserver",
             "https://demo.geo-solutions.it:443/geoserver",
-            "https://demo.geo-solutions.it/geoserver",
-            "https://sdigeo-free.austrocontrol.at",
-            "https://sdimd-free.austrocontrol.at",
-            "https://sdigeot-free.austrocontrol.at"
+            "https://demo.geo-solutions.it/geoserver"
         ]
     },
     "geoStoreUrl": "rest/geostore/",
