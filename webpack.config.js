@@ -25,15 +25,13 @@ module.exports = assign({}, require('./MapStore2/build/buildConfig')(
     },
     {
         '/rest/geostore': {
-            target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2",
-            secure: false
+            target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2"
         },
         '/pdf': {
-            target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2",
-            secure: false
+            target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2"
         },
         '/proxy': {
-            target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2"
+            target: "http://austrocontrol.geo-solutions.it/austrocontrol-ms2"
         },
         '/docs': {
             target: "http://localhost:8081",

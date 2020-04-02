@@ -7,7 +7,8 @@
             "https://demo.geo-solutions.it/geoserver",
             "https://sdigeo-free.austrocontrol.at",
             "https://sdimd-free.austrocontrol.at",
-            "https://sdigeot-free.austrocontrol.at"
+            "https://sdigeot-free.austrocontrol.at",
+            "https://nominatim.openstreetmap.org"
         ]
     },
     "geoStoreUrl": "rest/geostore/",
