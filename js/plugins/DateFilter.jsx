@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 const assign = require('object-assign');
-const {connect} = require('../../MapStore2/web/client/utils/PluginsUtils');
+const {connect} = require('react-redux');
 const {compose, branch, renderNothing} = require('recompose');
 const {createSelector} = require('reselect');
 
