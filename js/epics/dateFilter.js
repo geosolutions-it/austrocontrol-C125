@@ -27,12 +27,12 @@ module.exports = {
     loadDateFilterEffectiveDates: (action$, { getState = () => { } } = {}) => action$.ofType(MAP_CONFIG_LOADED)
         .switchMap( () =>
             Rx.Observable.fromPromise(axios.get(getEffectiveDatesURL(getState()))))
-                .pluck('data').pluck('effectiveDates')
-                .map(dates => setEffectiveDates(dates))
-                .catch( () => Rx.Observable.of(error({
-                    title: "Error loading calendar dates",
-                    message: `Couldn't retrieve dates at ${getEffectiveDatesURL(getState())}`
-                }))),
+        .pluck('data').pluck('effectiveDates')
+        .map(dates => setEffectiveDates(dates))
+        .catch( () => Rx.Observable.of(error({
+            title: "Error loading calendar dates",
+            message: `Couldn't retrieve dates at ${getEffectiveDatesURL(getState())}`
+        }))),
     dateFilterSelectionUpdateLayers: (action$) =>
         action$
             .ofType(SET_DATE)

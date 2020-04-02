@@ -27,11 +27,11 @@ const Glyphicon = tooltip(GlyphiconRB);
 
 const DayComponent = ({ highlighted = [], date, label }) => head(highlighted.filter(high => high.value && high.value === moment(date).format('MM/DD/YYYY'))) ? (
     <div style={{ color: '#ffffff', backgroundColor: '#5a9aab', margin: '0 .25em' }}>
-      {label}
+        {label}
     </div>
 ) : (
     <div>
-      {label}
+        {label}
     </div>
 );
 
@@ -165,7 +165,7 @@ class DateFilter extends React.Component {
                                                     </div>
                                                 </div>
                                             </ListGroupItem>
-                                    ))}
+                                        ))}
                                 </ListGroup>
                             </BorderLayout>}
                         </div>
@@ -203,7 +203,7 @@ class DateFilter extends React.Component {
                                     }
                                 }
                             ]}
-                            />
+                        />
                     }
                 />}
                 {!this.props.expanded && this.props.toggle && this.props.dropUp && <Button

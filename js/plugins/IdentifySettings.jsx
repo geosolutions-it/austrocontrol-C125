@@ -27,7 +27,7 @@ const IdentifySettings = connect((state) => ({
 }), {
     onToggleEmptyMessageGFI: toggleEmptyMessageGFI
 } )(
-class extends React.Component {
+    class extends React.Component {
     static propTypes = {
         showEmptyMessageGFI: PropTypes.bool,
         onToggleEmptyMessageGFI: PropTypes.func
@@ -47,7 +47,7 @@ class extends React.Component {
             </span>
         );
     }
-});
+    });
 
 
 class Empty extends React.Component {
