@@ -1,5 +1,5 @@
 /**
- * Copyright 2020, GeoSolutions Sas.
+ * Copyright 2016, GeoSolutions Sas.
  * All rights reserved.
  *
  * This source code is licensed under the BSD-style license found in the
@@ -54,7 +54,7 @@ module.exports = {
         LanguagePlugin: require("../MapStore2/web/client/plugins/Language"),
         LocatePlugin: require("../MapStore2/web/client/plugins/Locate"),
         ManagerMenuPlugin: require('../MapStore2/web/client/plugins/manager/ManagerMenu'),
-        MapExportPlugin: require('../MapStore2/web/client/plugins/MapExport'),
+        MapExportPlugin: require('../MapStore2/web/client/plugins/MapExport').default,
         MadeWithLovePlugin: require('../MapStore2/web/client/product/plugins/MadeWithLove'),
         MapFooterPlugin: require("../MapStore2/web/client/plugins/MapFooter"),
         MapImportPlugin: require("../MapStore2/web/client/plugins/MapImport"),

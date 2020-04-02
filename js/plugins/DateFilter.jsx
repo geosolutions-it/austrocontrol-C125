@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, GeoSolutions Sas.
+ * Copyright 2018, GeoSolutions Sas.
  * All rights reserved.
  *
  * This source code is licensed under the BSD-style license found in the
@@ -9,7 +9,6 @@ const assign = require('object-assign');
 const {connect} = require('../../MapStore2/web/client/utils/PluginsUtils');
 const {compose, branch, renderNothing} = require('recompose');
 const {createSelector} = require('reselect');
-
 
 const {setDate, toggleLayerVisibility} = require('../actions/dateFilter');
 const { getEffectiveDates, getDate, showDateFilter, getHideLayers } = require('../selectors/dateFilter');
