@@ -13,10 +13,11 @@ module.exports = function karmaConfig(config) {
     testConfig.webpack.module.rules = [{
         test: /\.jsx?$/,
         exclude: /(__tests__|node_modules|legacy|libs\\Cesium|libs\\html2canvas)\\|(__tests__|node_modules|legacy|libs\/Cesium|libs\/html2canvas)\/|webpack\.js|utils\/(openlayers|leaflet)/,
-        enforce: "pre",
+        enforce: "post",
         use: [
             {
-                loader: 'babel-istanbul-loader'
+                loader: 'istanbul-instrumenter-loader',
+                options: { esModules: true }
             }
         ]
     }, ...testConfig.webpack.module.rules];
