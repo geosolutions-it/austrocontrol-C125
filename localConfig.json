@@ -711,8 +711,8 @@
           "cfg": {
             "catalog": {
               "url": "https://sdigeo-free.austrocontrol.at/geoserver/free/wms",
-              "type": "csw",
-              "title": "GeoSolutions GeoServer CSW",
+              "type": "wms",
+              "title": "AustroControl Inspire WMS Service",
               "autoload": true
             },
             "containerPosition": "columns"
