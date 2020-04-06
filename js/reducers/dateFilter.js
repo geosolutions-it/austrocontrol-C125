@@ -24,13 +24,13 @@ module.exports = ( state = {
     effectiveDatesURL: "assets/config/effectiveDates.json"
 }, action ) => {
     switch (action.type) {
-        case SET_EFFECTIVE_DATES:
-            return set( "effectiveDates", action.dates, state);
-        case SET_DATE:
-            return set("date", action.date, state);
-        case TOGGLE_LAYER_VISIBILITY:
-            return set("hideLayers", action.hide, state);
-        default:
-            return state;
+    case SET_EFFECTIVE_DATES:
+        return set( "effectiveDates", action.dates, state);
+    case SET_DATE:
+        return set("date", action.date, state);
+    case TOGGLE_LAYER_VISIBILITY:
+        return set("hideLayers", action.hide, state);
+    default:
+        return state;
     }
 };

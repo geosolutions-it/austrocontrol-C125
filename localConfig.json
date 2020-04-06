@@ -4,7 +4,8 @@
         "useCORS": [
             "http://demo.geo-solutions.it/geoserver",
             "https://demo.geo-solutions.it:443/geoserver",
-            "https://demo.geo-solutions.it/geoserver"
+            "https://demo.geo-solutions.it/geoserver",
+            "https://nominatim.openstreetmap.org"
         ]
     },
     "geoStoreUrl": "rest/geostore/",
@@ -14,14 +15,13 @@
     "initialMapFilter": "",
     "ignoreMobileCss": false,
     "useAuthenticationRules": true,
+    "loadAfterTheme": true,
     "defaultMapOptions": {
       "cesium": {
           "flyTo": true,
           "navigationTools": true,
           "terrainProvider": {
-              "type": "cesium",
-              "url": "https://assets.agi.com/stk-terrain/world",
-              "requestVertexNormals": true
+              "type": "ellipsoid"
           }
       }
     },
@@ -30,19 +30,13 @@
         "method": "bearer"
     }],
     "monitorState": [
-      {"name": "routing", "path": "routing.location.pathname"},
+      {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
+      {"name": "geostorymode", "path": "geostory.mode"},
       {"name": "featuregridmode", "path": "featuregrid.mode"}],
     "projectionDefs": [],
-    "loadAfterTheme": true,
     "initialState": {
       "defaultState": {
-        "maptype": {
-          "mapType": "openlayers"
-        },
-        "maps": {
-          "mapType": "openlayers"
-        },
         "annotations": {
           "config": {
             "geometryEditorOptions": { "measureOptions": {"displayUom": "nm"}},
@@ -52,7 +46,10 @@
           "format": "aeronautical",
           "defaultTextAnnotation": "New"
         },
-		    "catalog": {
+        "maptype": {
+            "mapType": "{context.mode === 'desktop' ? 'openlayers' : 'leaflet'}"
+        },
+        "catalog": {
           "default": {
             "newService": {
                 "url": "",
@@ -105,6 +102,50 @@
                 "title": "Demo WMTS Service",
                 "autoload": false
               }
+            },
+            "staticServices": {
+              "default_map_backgrounds": {
+                "type": "backgrounds",
+                "title": "defaultMapBackgroundsServiceTitle",
+                "autoload": true,
+                "backgrounds": [{
+                    "type": "osm",
+                    "title": "Open Street Map",
+                    "name": "mapnik",
+                    "source": "osm",
+                    "group": "background"
+                }, {
+                    "type": "tileprovider",
+                    "title": "NASAGIBS Night 2012",
+                    "provider": "NASAGIBS.ViirsEarthAtNight2012",
+                    "name": "Night2012",
+                    "source": "nasagibs",
+                    "group": "background"
+                }, {
+                    "type": "tileprovider",
+                    "title": "OpenTopoMap",
+                    "provider": "OpenTopoMap",
+                    "name": "OpenTopoMap",
+                    "source": "OpenTopoMap",
+                    "group": "background"
+                }, {
+                    "format": "image/jpeg",
+                    "group": "background",
+                    "name": "s2cloudless:s2cloudless",
+                    "opacity": 1,
+                    "title": "Sentinel 2 Cloudless",
+                    "type": "wms",
+                    "url": "https://1maps.geo-solutions.it/geoserver/wms",
+                    "source": "s2cloudless",
+                    "singleTile": false
+                }, {
+                    "source": "ol",
+                    "group": "background",
+                    "title": "Empty Background",
+                    "fixed": true,
+                    "type": "empty"
+                }]
+              }
             }
           }
         },
@@ -138,6 +179,14 @@
         "mobile": [{
                 "name": "Map",
                 "cfg": {
+                    "mapOptions": {
+                      "openlayers": {
+                        "interactions": {
+                          "pinchRotate": false,
+                          "altShiftDragRotate": false
+                        }
+                      }
+                    },
                     "tools": ["locate"]
                 }
             }, "Version", "DrawerMenu",
@@ -146,13 +195,13 @@
                 "cfg": {
                     "bottom": 25,
                     "dimensions": {
-                      "side": 65,
-                      "sidePreview": 65,
-                      "frame": 3,
-                      "margin": 5,
-                      "label": false,
-                      "vertical": true
-                    }
+                    "side": 65,
+                    "sidePreview": 65,
+                    "frame": 3,
+                    "margin": 5,
+                    "label": false,
+                    "vertical": true
+                   }
                 }
             },
             {
@@ -177,8 +226,16 @@
             }, "Home", {
                 "name": "TOC",
                 "cfg": {
+                    "activateMetedataTool": false,
                     "activateMapTitle": false,
-                    "activateSortLayer": false
+                    "activateSortLayer": false,
+                    "activateLayerFilterTool": false,
+                    "activateQueryTool": false
+                }
+            }, "AddGroup", {
+                "name": "TOCItemsSettings",
+                "cfg": {
+                    "width": 300
                 }
             }, {
                 "name": "Tutorial",
@@ -223,43 +280,59 @@
                 "externalCookieUrl" : "",
                 "declineUrl" : "http://www.google.com"
               }
-            }, {
-                "name": "TOCItemsSettings",
-                "cfg": {
-                          "width": 300
-                }
-            }
+            },
+            "FeedbackMask"
         ],
-        "desktop": [
+        "desktop": [ "Details",
           {
             "name": "Map",
             "cfg": {
               "mapOptions": {
                 "openlayers": {
+                  "interactions": {
+                    "pinchRotate": false,
+                    "altShiftDragRotate": false
+                  },
                   "attribution": {
-                    "container": "#mapstore-map-footer-container"
+                    "container": "#footer-attribution-container"
                   }
                 },
                 "leaflet": {
                   "attribution": {
-                    "container": "#mapstore-map-footer-container"
+                    "container": "#footer-attribution-container"
                   }
                 }
               },
               "toolsOptions": {
                 "scalebar": {
-                  "container" : "#mapstore-map-footer-container"
+                  "container" : "#footer-scalebar-container"
                 }
               }
             }
-          }, "AutoMapUpdate", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
-            "name": "Annotations",
-            "cfg": {
-              "lineDashOptions": [{"value": "1 0"}, {"value":"10 50 30"}, {"value":"6 6"}, {"value":"20 20"}, {"value":"30 30"}],
-              "symbolsPath": "assets/symbols/",
-              "defaultShape": "CMP"
-            }
-          }, "IdentifySettings",
+          }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+            {
+              "name": "Share",
+              "cfg": {
+                "advancedSettings": {
+                  "bbox": true
+                }
+              }
+            },
+            "IdentifySettings",
+            {
+                "name": "Identify",
+                "cfg": {
+                    "showHighlightFeatureButton": true,
+                    "viewerOptions": {
+                        "container": "{context.ReactSwipe}"
+                    }
+                },
+                "override": {
+                  "Toolbar": {
+                    "position": 11
+                  }
+                }
+            },
             {
                 "name": "Locate",
                 "override": {
@@ -331,15 +404,18 @@
                         {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
                     ]
                 }
-            }, "Tutorial", "MapFooter", {
+            },
+          "FilterLayer",
+          "AddGroup",
+          "TOCItemsSettings",
+          "Tutorial", "MapFooter", {
                 "name": "Measure",
                 "cfg": {
-                  "defaultOptions" : {
-                    "showAddAsAnnotation": true,
-                    "showCoordinateEditor": true
+                  "defaultOptions": {
+                    "showAddAsAnnotation": true
                   }
                 }
-            }, "Print", "MapExport", "MapImport", {
+            }, "Print", "MapImport", "MapExport", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -373,6 +449,20 @@
                 "showToggle": true,
                 "filterAllowedCRS": ["EPSG:4326", "EPSG:3857"],
                 "additionalCRS": {}
+              }
+            }, {
+              "name": "CRSSelector",
+              "cfg": {
+                "additionalCRS": {
+
+                },
+                "filterAllowedCRS": [
+                  "EPSG:4326",
+                  "EPSG:3857"
+                ],
+                "allowedRoles": [
+                  "ADMIN"
+                ]
               }
             }, {
                 "name": "Search",
@@ -421,7 +511,7 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "WidgetsTray",
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder",
             {
               "name": "Widgets",
                 "cfg": {
@@ -432,27 +522,36 @@
                       "showCollapse": true
                   }
                 }
-            }, "TOCItemsSettings", "FeedbackMask"
+            },
+            "WidgetsTray",
+            "Timeline",
+            "Playback",
+            "FeedbackMask",
+            "StyleEditor"
         ],
         "embedded": [{
                 "name": "Map",
                 "cfg": {
                     "tools": ["locate"],
-                  "mapOptions": {
+                    "mapOptions": {
                     "openlayers": {
+                      "interactions": {
+                        "pinchRotate": false,
+                        "altShiftDragRotate": false
+                      },
                       "attribution": {
-                        "container": "#mapstore-map-footer-container"
+                        "container": "#footer-attribution-container"
                       }
                     },
                     "leaflet": {
                       "attribution": {
-                        "container": "#mapstore-map-footer-container"
+                        "container": "#footer-attribution-container"
                       }
                     }
                   },
                   "toolsOptions": {
                     "scalebar": {
-                      "container" : "#mapstore-map-footer-container"
+                      "container" : "#footer-scalebar-container"
                     }
                   }
                 }
@@ -502,10 +601,11 @@
                 "cfg": {
                     "activateMapTitle": false,
                     "activateSettingsTool": false,
+                    "activateMetedataTool": false,
                     "activateRemoveLayer": false
                 }
 
-            }, "MapFooter", {
+            }, "AddGroup", "MapFooter", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -513,7 +613,8 @@
             }, {
                 "name": "Search",
                 "cfg": {
-                    "withToggle": ["max-width: 768px", "min-width: 768px"]
+                  "showOptions": false,
+                  "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
             }, {
                 "name": "Toolbar",
@@ -536,36 +637,139 @@
                         "alwaysVisible": true
                     }
                 }
-            }
+            },
+            "FeedbackMask"
         ],
         "common": [{
             "name": "OmniBar",
             "cfg": {
                 "className": "navbar shadow navbar-home"
             }
-        }, "ManagerMenu", "Login", "Language", "Attribution", "ScrollTop", "Notifications"],
-        "maps": [ "HomeDescription", "MapSearch", "GridContainer",
-          {
-            "name":"CreateNewMap",
+        }, {
+            "name": "ManagerMenu",
             "cfg": {
-              "showNewDashboard": false
+                "enableContextManager": true
             }
-          },
+        }, "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
+        "maps": ["HomeDescription", "MapSearch",
+          {
+            "name": "CreateNewMap",
+            "cfg": {
+              "showNewGeostory": false
+            }
+          }, "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
               "mapsOptions": {
                 "start": 0,
                 "limit": 12
-              }
-              }
+              },
+              "fluid": true
+            }
           }, {
+            "name": "Dashboards",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
+            }
+          }, {
+            "name": "Contexts",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
+            }
+          }
+          , "MailingLists", "Footer", {
           "name": "Cookie",
           "cfg": {
             "externalCookieUrl" : "",
             "declineUrl" : "http://www.google.com"
           }
         }],
-        "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"]
+        "dashboard": [{
+            "name": "OmniBar",
+            "cfg": {
+                "containerPosition": "header",
+                "className": "navbar shadow navbar-home"
+            }
+        }, "Login", "Language", "NavMenu", "DashboardSave", "DashboardSaveAs", "Attribution", "Home", {
+          "name": "Share",
+          "cfg": {
+            "embedPanel": false,
+            "advancedSettings": false
+          }
+        },
+          {
+          "name": "DashboardEditor",
+          "cfg": {
+            "catalog": {
+              "url": "https://sdigeo-free.austrocontrol.at/geoserver/free/wms",
+              "type": "wms",
+              "title": "AustroControl Inspire WMS Service",
+              "autoload": true
+            },
+            "containerPosition": "columns"
+          }
+        }, {
+          "name": "QueryPanel",
+          "cfg": {
+            "toolsOptions": {
+              "hideCrossLayer": true,
+              "hideSpatialFilter": true
+            },
+            "containerPosition": "columns"
+          }
+        }, "BurgerMenu", "Dashboard", "Notifications", {
+            "name": "Tutorial",
+            "cfg": {
+                "allowClicksThruHole": false,
+                "containerPosition": "header",
+                "preset": "dashboard_tutorial"
+            }
+        },
+        {
+            "name": "FeedbackMask",
+            "cfg": {
+                "containerPosition": "header"
+            }
+        }],
+        "context-creator": [
+          {
+            "name": "OmniBar",
+            "cfg": {
+              "containerPosition": "header",
+              "className": "navbar shadow navbar-home"
+            }
+          },
+          "Redirect",
+          "Login",
+          "Language",
+          "NavMenu",
+          "Attribution",
+          {
+              "name": "ContextCreator",
+              "cfg": {
+                  "documentationBaseURL": "https://mapstore.geo-solutions.it/mapstore/docs/api/plugins",
+                  "backToPageDestRoute": "/context-manager",
+                  "backToPageConfirmationMessage": "contextCreator.undo"
+              }
+          },
+          "Notifications",
+          {
+            "name": "FeedbackMask",
+            "cfg": {
+              "containerPosition": "header"
+            }
+          }
+        ],
+        "manager": ["Header", "Redirect", "Manager", "Home", "UserManager", "GroupManager", "Footer"],
+        "context-manager": ["Header", "Redirect", "Home", "ContextManager", "Footer"]
     }
 }

@@ -1,0 +1,17 @@
+dist: xenial
+language: node_js
+node_js:
+  - 12.13.0
+script:
+  - npm run travis
+addons:
+  firefox: latest
+before_install:
+  - node -v
+  - npm -v
+branches:
+  only:
+    - master
+    - production
+    - DEV
+    - /^\d{4}\.\d{2}.\d{2}$/
