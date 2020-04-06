@@ -250,6 +250,16 @@
             }, {
                 "name": "Search",
                 "cfg": {
+                  "searchOptions": {
+                    "services": [
+                      {
+                        "type": "nominatim",
+                        "options": {
+                          "countrycodes": "at,de"
+                        }
+                      }
+                    ]
+                  },
                   "showOptions": false,
                   "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
@@ -467,6 +477,16 @@
             }, {
                 "name": "Search",
                 "cfg": {
+                  "searchOptions": {
+                    "services": [
+                      {
+                        "type": "nominatim",
+                        "options": {
+                          "countrycodes": "at,de"
+                        }
+                      }
+                    ]
+                  },
                   "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
             }, {
@@ -613,6 +633,16 @@
             }, {
                 "name": "Search",
                 "cfg": {
+                  "searchOptions": {
+                    "services": [
+                      {
+                        "type": "nominatim",
+                        "options": {
+                          "countrycodes": "at,de"
+                        }
+                      }
+                    ]
+                  },
                   "showOptions": false,
                   "withToggle": ["max-width: 768px", "min-width: 768px"]
                 }
