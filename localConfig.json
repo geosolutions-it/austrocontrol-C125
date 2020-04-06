@@ -5,9 +5,6 @@
             "http://demo.geo-solutions.it/geoserver",
             "https://demo.geo-solutions.it:443/geoserver",
             "https://demo.geo-solutions.it/geoserver",
-            "https://sdigeo-free.austrocontrol.at",
-            "https://sdimd-free.austrocontrol.at",
-            "https://sdigeot-free.austrocontrol.at",
             "https://nominatim.openstreetmap.org"
         ]
     },
@@ -312,7 +309,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "HelpLink", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
               "name": "Share",
               "cfg": {
@@ -321,6 +318,7 @@
                 }
               }
             },
+            "IdentifySettings",
             {
                 "name": "Identify",
                 "cfg": {
@@ -343,7 +341,15 @@
                     }
                 }
             }, "Home", "FeatureEditor",
-            "WFSDownload",
+            {
+              "name": "WFSDownload",
+              "cfg": {
+                "srsList": [
+                    {"name": "EPSG:4326", "label": "WGS84"},
+                    {"name": "native", "label": "Native"}
+                  ]
+              }
+            },
             {
               "name": "QueryPanel",
               "cfg": {
@@ -409,9 +415,7 @@
                     "showAddAsAnnotation": true
                   }
                 }
-            }, "Print", "MapImport", {
-                "name": "MapExport"
-            }, {
+            }, "Print", "MapImport", "MapExport", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -507,7 +511,18 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder",
+            {
+              "name": "Widgets",
+                "cfg": {
+                  "toolsOptions": {
+                      "showPin": "user.role===ADMIN",
+                      "seeHidden": "user.role===ADMIN",
+                      "showHide": "user.role===ADMIN",
+                      "showCollapse": true
+                  }
+                }
+            },
             "WidgetsTray",
             "Timeline",
             "Playback",
@@ -636,8 +651,13 @@
                 "enableContextManager": true
             }
         }, "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "Fork", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
-
+        "maps": ["HomeDescription", "MapSearch",
+          {
+            "name": "CreateNewMap",
+            "cfg": {
+              "showNewGeostory": false
+            }
+          }, "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
@@ -656,18 +676,7 @@
               },
               "fluid": true
             }
-          },
-          {
-            "name": "GeoStories",
-            "cfg": {
-              "mapsOptions": {
-                "start": 0,
-                "limit": 12
-              },
-              "fluid": true
-            }
-          },
-          {
+          }, {
             "name": "Contexts",
             "cfg": {
               "mapsOptions": {
@@ -701,7 +710,7 @@
           "name": "DashboardEditor",
           "cfg": {
             "catalog": {
-              "url": "https://gs-stable.geo-solutions.it/geoserver/csw",
+              "url": "https://sdigeo-free.austrocontrol.at/geoserver/free/wms",
               "type": "csw",
               "title": "GeoSolutions GeoServer CSW",
               "autoload": true
@@ -731,55 +740,6 @@
                 "containerPosition": "header"
             }
         }],
-        "geostory": [
-          {
-            "name": "OmniBar",
-            "cfg": {
-              "containerPosition": "header",
-              "className": "navbar shadow navbar-home"
-            }
-          },
-          "Login",
-          "BurgerMenu",
-          "Language",
-          "NavMenu",
-          "Attribution",
-          "Home",
-          "GeoStory",
-          "GeoStorySave",
-          "GeoStorySaveAs",
-          "MapEditor",
-          "MediaEditor",
-          {
-            "name": "GeoStoryEditor",
-            "cfg": {
-              "disablePluginIf": "{!!(state('browser') && state('browser').mobile)}",
-              "containerPosition": "columns"
-            }
-          },
-          {
-            "name": "GeoStoryNavigation",
-            "cfg": {
-              "containerPosition": "header"
-            }
-          },
-          "Notifications",
-          {
-            "name": "FeedbackMask",
-            "cfg": {
-              "containerPosition": "header"
-            }
-          },
-          {
-            "name": "Share",
-            "cfg": {
-              "embedPanel": false,
-              "advancedSettings": {
-                "homeButton": true
-              }
-            }
-          }
-        ],
         "context-creator": [
           {
             "name": "OmniBar",

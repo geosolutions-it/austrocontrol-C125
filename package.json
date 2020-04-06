@@ -248,7 +248,6 @@
         "start": "webpack-dev-server --progress --colors --port 8081 --hot --inline --config webpack.config.js --content-base .",
         "postinstall": "node checkCesium.js && rimraf node_modules/leaflet-simple-graticule/node_modules && rimraf node_modules/react-sortable-items/node_modules/react-dom && rimraf node_modules/mocha && ncp node_modules/@geosolutions/mocha node_modules/mocha",
         "test": "karma start ./karma.conf.single-run.js --colors",
-        "pretest": "npm run lint",
         "continuoustest": "karma start ./karma.conf.continuous-test.js --colors",
         "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
         "lint": "eslint js --ext .jsx,.js",

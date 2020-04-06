@@ -35,10 +35,6 @@ module.exports = assign({}, require('./MapStore2/build/buildConfig')(
         '/proxy': {
             target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2",
             secure: false
-        },
-        '/docs': {
-            target: "http://localhost:8081",
-            pathRewrite: { '/docs': '/mapstore/docs' }
         }
     }
 ));
