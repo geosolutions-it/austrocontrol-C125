@@ -26,33 +26,33 @@ const React = require('react');
  * @prop {function} onClick callback on card click
  */
 
-module.exports = ({dropUp, body, className = '', style = {}, onClick=() => {}, size, title, preview, description, caption, tools, selected, ...more} = {}) =>
-<div className={`mapstore-side-card${selected ? ' selected' : ''}${size ? ' ms-' + size : ''} ${className}`}
-    onClick={() => onClick({title, preview, description, caption, tools, ...more})}
-    style={style}>
-    {body && dropUp && <div className="ms-body">
-        {body}
-    </div>}
-    <div className="ms-head">
-        {preview && <div className="mapstore-side-preview">
-            {preview}
+module.exports = ({dropUp, body, className = '', style = {}, onClick = () => {}, size, title, preview, description, caption, tools, selected, ...more} = {}) =>
+    <div className={`mapstore-side-card${selected ? ' selected' : ''}${size ? ' ms-' + size : ''} ${className}`}
+        onClick={() => onClick({title, preview, description, caption, tools, ...more})}
+        style={style}>
+        {body && dropUp && <div className="ms-body">
+            {body}
         </div>}
-        <div className="mapstore-side-card-info">
-            <div className="mapstore-side-card-title">
-                <span>{title}</span>
-            </div>
-            <div className="mapstore-side-card-desc">
-                <span>{description}</span>
-            </div>
-            {caption && <div className="mapstore-side-card-caption">
-                <span>{caption}</span>
+        <div className="ms-head">
+            {preview && <div className="mapstore-side-preview">
+                {preview}
             </div>}
+            <div className="mapstore-side-card-info">
+                <div className="mapstore-side-card-title">
+                    <span>{title}</span>
+                </div>
+                <div className="mapstore-side-card-desc">
+                    <span>{description}</span>
+                </div>
+                {caption && <div className="mapstore-side-card-caption">
+                    <span>{caption}</span>
+                </div>}
+            </div>
+            <div className="mapstore-side-card-tool text-center">
+                {tools}
+            </div>
         </div>
-        <div className="mapstore-side-card-tool text-center">
-            {tools}
-        </div>
-    </div>
-    {body && !dropUp && <div className="ms-body">
-        {body}
-    </div>}
-</div>;
+        {body && !dropUp && <div className="ms-body">
+            {body}
+        </div>}
+    </div>;

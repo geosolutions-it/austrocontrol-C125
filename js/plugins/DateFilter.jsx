@@ -6,10 +6,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 const assign = require('object-assign');
-const { connect } = require('react-redux');
+const {connect} = require('react-redux');
 const {compose, branch, renderNothing} = require('recompose');
 const {createSelector} = require('reselect');
-
 
 const {setDate, toggleLayerVisibility} = require('../actions/dateFilter');
 const { getEffectiveDates, getDate, showDateFilter, getHideLayers } = require('../selectors/dateFilter');
@@ -43,7 +42,8 @@ const DateFilterPlugin = compose(
                     marginLeft: (left || 50) + 5
                 }
             })
-        ), {
+        ),
+        {
             onSetDate: setDate,
             onToggleFilter: toggleLayerVisibility
         }

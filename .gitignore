@@ -9,3 +9,11 @@ web/.classpath
 web/.project
 backend/.classpath
 backend/.project
+.idea/
+.settings/
+web/overlays/
+.project
+austrocontrol-ms2-root.iml
+package-lock.json
+backend/austrocontrol-ms2-backend.iml
+web/austrocontrol-ms2-web.iml

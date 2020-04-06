@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = function karmaConfig(config) {
-    const testConfig = require('./MapStore2/testConfig')({
+    const testConfig = require('./MapStore2/build/testConfig')({
         files: [
             'tests.webpack.js',
             { pattern: './js/test-resources/**/*', included: false }
@@ -11,14 +11,15 @@ module.exports = function karmaConfig(config) {
         singleRun: true
     });
     testConfig.webpack.module.rules = [{
-                    test: /\.jsx?$/,
-                    exclude: /(__tests__|node_modules|legacy|libs\\Cesium|libs\\html2canvas)\\|(__tests__|node_modules|legacy|libs\/Cesium|libs\/html2canvas)\/|webpack\.js|utils\/(openlayers|leaflet)/,
-                    enforce: "pre",
-                    use: [
-                        {
-                            loader: 'babel-istanbul-loader'
-                        }
-                    ]
-                }, ...testConfig.webpack.module.rules];
+        test: /\.jsx?$/,
+        exclude: /(__tests__|node_modules|legacy|libs\\Cesium|libs\\html2canvas)\\|(__tests__|node_modules|legacy|libs\/Cesium|libs\/html2canvas)\/|webpack\.js|utils\/(openlayers|leaflet)/,
+        enforce: "post",
+        use: [
+            {
+                loader: 'istanbul-instrumenter-loader',
+                options: { esModules: true }
+            }
+        ]
+    }, ...testConfig.webpack.module.rules];
     config.set(testConfig);
 };

@@ -19,7 +19,7 @@ module.exports = compose(
     withPropsOnChange(['date'], ({ date }) => ({
         date: date
             ? new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
-            date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds()) : undefined
+                date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds()) : undefined
     })),
     withHandlers({
         onSetDate: ({ onSetDate = () => { } }) => date => onSetDate((date && date.getTime)
