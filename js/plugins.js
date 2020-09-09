@@ -82,6 +82,7 @@ module.exports = {
         ScrollTopPlugin: require("../MapStore2/web/client/plugins/ScrollTop"),
         SearchPlugin: require("../MapStore2/web/client/plugins/Search"),
         SearchServicesConfigPlugin: require("../MapStore2/web/client/plugins/SearchServicesConfig"),
+        SearchByBookmarkPlugin: require('../MapStore2/web/client/plugins/SearchByBookmark').default,
         SettingsPlugin: require("../MapStore2/web/client/plugins/Settings"),
         SharePlugin: require("../MapStore2/web/client/plugins/Share"),
         SnapshotPlugin: require("../MapStore2/web/client/plugins/Snapshot"),
