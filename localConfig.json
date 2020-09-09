@@ -543,7 +543,14 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder",
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig",
+          {
+            "name": "SearchByBookmark",
+            "cfg": {
+              "bookmarkEditing": "ADMIN"
+            }
+          },
+          "WidgetsBuilder",
             {
               "name": "Widgets",
                 "cfg": {
