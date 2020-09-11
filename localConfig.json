@@ -430,8 +430,11 @@
                 "name": "Measure",
                 "cfg": {
                   "defaultOptions": {
+                    "showSegmentLengths": true,
                     "showAddAsAnnotation": true,
-                    "trueBearing":{
+                    "showCoordinateEditor": true,
+                    "showLengthAndBearingLabel": true,
+                    "trueBearing": {
                       "measureTrueBearing": true,
                       "fractionDigits": 0
                     }
