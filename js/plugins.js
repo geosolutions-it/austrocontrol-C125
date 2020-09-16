@@ -52,6 +52,7 @@ module.exports = {
         HelpPlugin: require("../MapStore2/web/client/plugins/Help"),
         IdentifyPlugin: require("../MapStore2/web/client/plugins/Identify"),
         LanguagePlugin: require("../MapStore2/web/client/plugins/Language"),
+        LayerInfoPlugin: require('..MapStore2/web/client/plugins/LayerInfo').default,
         LocatePlugin: require("../MapStore2/web/client/plugins/Locate"),
         ManagerMenuPlugin: require('../MapStore2/web/client/plugins/manager/ManagerMenu'),
         MapExportPlugin: require('../MapStore2/web/client/plugins/MapExport').default,
