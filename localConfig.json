@@ -33,7 +33,10 @@
       {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
       {"name": "geostorymode", "path": "geostory.mode"},
-      {"name": "featuregridmode", "path": "featuregrid.mode"}],
+      {"name": "featuregridmode", "path": "featuregrid.mode"},
+      {"name": "userrole", "path": "security.user.role"},
+      {"name": "printEnabled", "path": "print.capabilities"}
+    ],
     "projectionDefs": [],
     "initialState": {
       "defaultState": {
@@ -792,6 +795,64 @@
                 "containerPosition": "header"
             }
         }],
+        "geostory": [
+          {
+            "name": "OmniBar",
+            "cfg": {
+              "containerPosition": "header",
+              "className": "navbar shadow navbar-home"
+            }
+          },
+          {
+            "name": "Tutorial",
+            "cfg": {
+              "allowClicksThruHole": false,
+              "containerPosition": "header",
+              "preset": "geostory_view_tutorial"
+            }
+          },
+          "Login",
+          "BurgerMenu",
+          "Language",
+          "NavMenu",
+          "Attribution",
+          "Home",
+          "GeoStory",
+          "GeoStorySave",
+          "GeoStorySaveAs",
+          "MapEditor",
+          "MediaEditor",
+          {
+            "name": "GeoStoryEditor",
+            "cfg": {
+              "disablePluginIf": "{!!(state('browser') && state('browser').mobile)}",
+              "containerPosition": "columns"
+            }
+          },
+          {
+            "name": "GeoStoryNavigation",
+            "cfg": {
+              "containerPosition": "header"
+            }
+          },
+          "Notifications",
+          {
+            "name": "FeedbackMask",
+            "cfg": {
+              "containerPosition": "header"
+            }
+          },
+          {
+            "name": "Share",
+            "cfg": {
+              "embedPanel": false,
+              "advancedSettings": {
+                "homeButton": true,
+                "sectionId": true
+              }
+            }
+          }
+        ],
         "context-creator": [
           {
             "name": "OmniBar",
@@ -805,6 +866,7 @@
           "Language",
           "NavMenu",
           "Attribution",
+          "Tutorial",
           {
               "name": "ContextCreator",
               "cfg": {
