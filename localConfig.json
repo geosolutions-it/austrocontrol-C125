@@ -25,6 +25,9 @@
           }
       }
     },
+    "localizedLayerStyles": {
+      "name": "mapstore_language"
+    },
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
         "method": "bearer"
