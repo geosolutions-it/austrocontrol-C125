@@ -25,6 +25,9 @@
           }
       }
     },
+    "localizedLayerStyles": {
+      "name": "mapstore_language"
+    },
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
         "method": "bearer"
@@ -33,7 +36,10 @@
       {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
       {"name": "geostorymode", "path": "geostory.mode"},
-      {"name": "featuregridmode", "path": "featuregrid.mode"}],
+      {"name": "featuregridmode", "path": "featuregrid.mode"},
+      {"name": "userrole", "path": "security.user.role"},
+      {"name": "printEnabled", "path": "print.capabilities"}
+    ],
     "projectionDefs": [],
     "initialState": {
       "defaultState": {
@@ -293,7 +299,7 @@
             },
             "FeedbackMask"
         ],
-        "desktop": [ "Details",
+        "desktop": ["Details",
           {
             "name": "Map",
             "cfg": {
@@ -319,7 +325,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
+          }, "AutoMapUpdate", "HelpLink", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
             "name": "Annotations",
             "cfg": {
               "lineDashOptions": [{"value": "1 0"}, {"value":"10 50 30"}, {"value":"6 6"}, {"value":"20 20"}, {"value":"30 30"}],
@@ -374,7 +380,6 @@
                   "activateQueryTool": true,
                   "spatialOperations": [
                       {"id": "INTERSECTS", "name": "queryform.spatialfilter.operations.intersects"},
-                      {"id": "BBOX", "name": "queryform.spatialfilter.operations.bbox"},
                       {"id": "CONTAINS", "name": "queryform.spatialfilter.operations.contains"},
                       {"id": "WITHIN", "name": "queryform.spatialfilter.operations.within"}
                   ],
@@ -408,19 +413,7 @@
                           "name": "time"
                         }
                       }]
-                    },
-                    "spatialOperations": [
-                        {"id": "INTERSECTS", "name": "queryform.spatialfilter.operations.intersects"},
-                        {"id": "BBOX", "name": "queryform.spatialfilter.operations.bbox"},
-                        {"id": "CONTAINS", "name": "queryform.spatialfilter.operations.contains"},
-                        {"id": "WITHIN", "name": "queryform.spatialfilter.operations.within"}
-                    ],
-                    "spatialMethodOptions": [
-                        {"id": "Viewport", "name": "queryform.spatialfilter.methods.viewport"},
-                        {"id": "BBOX", "name": "queryform.spatialfilter.methods.box"},
-                        {"id": "Circle", "name": "queryform.spatialfilter.methods.circle"},
-                        {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
-                    ]
+                    }
                 }
             },
           "FilterLayer",
@@ -437,7 +430,9 @@
                     }
                   }
                 }
-            }, "Print", "MapImport", "MapExport", {
+            }, "Print", "MapImport", {
+              "name": "MapExport"
+            }, {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -543,7 +538,7 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder",
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "SearchByBookmark", "WidgetsBuilder",
             {
               "name": "Widgets",
                 "cfg": {
@@ -693,13 +688,7 @@
                 "enableContextManager": true
             }
         }, "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "MapSearch",
-          {
-            "name": "CreateNewMap",
-            "cfg": {
-              "showNewGeostory": false
-            }
-          }, "FeaturedMaps", "ContentTabs",
+        "maps": ["HomeDescription", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
@@ -718,7 +707,18 @@
               },
               "fluid": true
             }
-          }, {
+          },
+          {
+            "name": "GeoStories",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
+            }
+          },
+          {
             "name": "Contexts",
             "cfg": {
               "mapsOptions": {
@@ -782,6 +782,64 @@
                 "containerPosition": "header"
             }
         }],
+        "geostory": [
+          {
+            "name": "OmniBar",
+            "cfg": {
+              "containerPosition": "header",
+              "className": "navbar shadow navbar-home"
+            }
+          },
+          {
+            "name": "Tutorial",
+            "cfg": {
+              "allowClicksThruHole": false,
+              "containerPosition": "header",
+              "preset": "geostory_view_tutorial"
+            }
+          },
+          "Login",
+          "BurgerMenu",
+          "Language",
+          "NavMenu",
+          "Attribution",
+          "Home",
+          "GeoStory",
+          "GeoStorySave",
+          "GeoStorySaveAs",
+          "MapEditor",
+          "MediaEditor",
+          {
+            "name": "GeoStoryEditor",
+            "cfg": {
+              "disablePluginIf": "{!!(state('browser') && state('browser').mobile)}",
+              "containerPosition": "columns"
+            }
+          },
+          {
+            "name": "GeoStoryNavigation",
+            "cfg": {
+              "containerPosition": "header"
+            }
+          },
+          "Notifications",
+          {
+            "name": "FeedbackMask",
+            "cfg": {
+              "containerPosition": "header"
+            }
+          },
+          {
+            "name": "Share",
+            "cfg": {
+              "embedPanel": false,
+              "advancedSettings": {
+                "homeButton": true,
+                "sectionId": true
+              }
+            }
+          }
+        ],
         "context-creator": [
           {
             "name": "OmniBar",
