@@ -299,7 +299,7 @@
             },
             "FeedbackMask"
         ],
-        "desktop": ["Details",
+        "desktop": [ "Details", "LayerInfo",
           {
             "name": "Map",
             "cfg": {
@@ -423,8 +423,11 @@
                 "name": "Measure",
                 "cfg": {
                   "defaultOptions": {
+                    "showSegmentLengths": true,
                     "showAddAsAnnotation": true,
-                    "trueBearing":{
+                    "showCoordinateEditor": true,
+                    "showLengthAndBearingLabel": true,
+                    "trueBearing": {
                       "measureTrueBearing": true,
                       "fractionDigits": 0
                     }
@@ -538,7 +541,14 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "SearchByBookmark", "WidgetsBuilder",
+            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig",
+          {
+            "name": "SearchByBookmark",
+            "cfg": {
+              "bookmarkEditing": "ADMIN"
+            }
+          },
+          "WidgetsBuilder",
             {
               "name": "Widgets",
                 "cfg": {
@@ -853,6 +863,7 @@
           "Language",
           "NavMenu",
           "Attribution",
+          "Tutorial",
           {
               "name": "ContextCreator",
               "cfg": {

@@ -122,6 +122,7 @@ module.exports = {
         ZoomAllPlugin: require('../MapStore2/web/client/plugins/ZoomAll'),
         ZoomInPlugin: require('../MapStore2/web/client/plugins/ZoomIn'),
         ZoomOutPlugin: require('../MapStore2/web/client/plugins/ZoomOut'),
+
         // project plugins
         DateFilter: require('./plugins/DateFilter'),
         IdentifySettingsPlugin: require('./plugins/IdentifySettings')
