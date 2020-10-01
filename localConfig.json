@@ -710,12 +710,8 @@
             }
         }, "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
         "maps": ["HomeDescription", "MapSearch",
-          {
-            "name": "CreateNewMap",
-            "cfg": {
-              "showNewGeostory": false
-            }
-          }, "FeaturedMaps", "ContentTabs",
+          "CreateNewMap",
+          "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
