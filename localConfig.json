@@ -325,7 +325,7 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
+          }, "AutoMapUpdate", "HelpLink", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
             "name": "Annotations",
             "cfg": {
               "lineDashOptions": [{"value": "1 0"}, {"value":"10 50 30"}, {"value":"6 6"}, {"value":"20 20"}, {"value":"30 30"}],
@@ -380,7 +380,6 @@
                   "activateQueryTool": true,
                   "spatialOperations": [
                       {"id": "INTERSECTS", "name": "queryform.spatialfilter.operations.intersects"},
-                      {"id": "BBOX", "name": "queryform.spatialfilter.operations.bbox"},
                       {"id": "CONTAINS", "name": "queryform.spatialfilter.operations.contains"},
                       {"id": "WITHIN", "name": "queryform.spatialfilter.operations.within"}
                   ],
@@ -414,19 +413,7 @@
                           "name": "time"
                         }
                       }]
-                    },
-                    "spatialOperations": [
-                        {"id": "INTERSECTS", "name": "queryform.spatialfilter.operations.intersects"},
-                        {"id": "BBOX", "name": "queryform.spatialfilter.operations.bbox"},
-                        {"id": "CONTAINS", "name": "queryform.spatialfilter.operations.contains"},
-                        {"id": "WITHIN", "name": "queryform.spatialfilter.operations.within"}
-                    ],
-                    "spatialMethodOptions": [
-                        {"id": "Viewport", "name": "queryform.spatialfilter.methods.viewport"},
-                        {"id": "BBOX", "name": "queryform.spatialfilter.methods.box"},
-                        {"id": "Circle", "name": "queryform.spatialfilter.methods.circle"},
-                        {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
-                    ]
+                    }
                 }
             },
           "FilterLayer",
@@ -446,7 +433,9 @@
                     }
                   }
                 }
-            }, "Print", "MapImport", "MapExport", {
+            }, "Print", "MapImport", {
+              "name": "MapExport"
+            }, {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -709,13 +698,7 @@
                 "enableContextManager": true
             }
         }, "Login","Language", "NavMenu", "Attribution", "ScrollTop", "Notifications"],
-        "maps": ["HomeDescription", "MapSearch",
-          {
-            "name": "CreateNewMap",
-            "cfg": {
-              "showNewGeostory": false
-            }
-          }, "FeaturedMaps", "ContentTabs",
+        "maps": ["HomeDescription", "MapSearch", "CreateNewMap", "FeaturedMaps", "ContentTabs",
           {
             "name": "Maps",
             "cfg": {
@@ -734,7 +717,18 @@
               },
               "fluid": true
             }
-          }, {
+          },
+          {
+            "name": "GeoStories",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
+            }
+          },
+          {
             "name": "Contexts",
             "cfg": {
               "mapsOptions": {
