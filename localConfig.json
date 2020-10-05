@@ -31,7 +31,10 @@
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
         "method": "bearer"
-    }],
+    }, {
+        "urlPattern": ".*rest/config.*",
+        "method": "bearer"
+      }],
     "monitorState": [
       {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
