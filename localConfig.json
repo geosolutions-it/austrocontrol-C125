@@ -333,7 +333,8 @@
             "cfg": {
               "lineDashOptions": [{"value": "1 0"}, {"value":"10 50 30"}, {"value":"6 6"}, {"value":"20 20"}, {"value":"30 30"}],
               "symbolsPath": "assets/symbols/",
-              "defaultShape": "CMP"
+              "defaultShape": "CMP",
+              "measurementAnnotationEdit": true
             }
           },
             {
