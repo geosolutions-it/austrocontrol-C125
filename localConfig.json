@@ -70,7 +70,7 @@
             "selectedService": "AustroControl Free WMS Service",
             "services": {
               "AustroControl Inspire WMS Service": {
-                "url": "https://sdigeo-free.austrocontrol.at/geoserver/inspire/wms",
+                "url": " https://sdigeo-free.austrocontrol.at/geoserver/tn-a/wms",
                 "type": "wms",
                 "title": "AustroControl Inspire WMS Service",
                 "autoload": true
@@ -82,13 +82,13 @@
                 "autoload": true
               },
               "AustroControl Inspire CSW Service": {
-                "url": "https://sdimd-free.austrocontrol.at/geonetwork/srv/eng/csw-inspire",
+                "url": "https://sdimd-free.austrocontrol.at/geonetwork/csw-inspire/eng/csw",
                 "type": "csw",
                 "title": "AustroControl Inspire CSW Service",
                 "autoload": true
               },
               "AustroControl Free CSW Service": {
-                "url": "https://sdimd-free.austrocontrol.at/geonetwork/srv/eng/csw-free",
+                "url": "https://sdimd-free.austrocontrol.at/geonetwork/csw-free/eng/csw",
                 "type": "csw",
                 "title": "AustroControl Free CSW Service",
                 "autoload": true
