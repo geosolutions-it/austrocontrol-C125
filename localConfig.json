@@ -475,20 +475,6 @@
                 "additionalCRS": {}
               }
             }, {
-              "name": "CRSSelector",
-              "cfg": {
-                "additionalCRS": {
-
-                },
-                "filterAllowedCRS": [
-                  "EPSG:4326",
-                  "EPSG:3857"
-                ],
-                "allowedRoles": [
-                  "ADMIN"
-                ]
-              }
-            }, {
                 "name": "Search",
                 "cfg": {
                   "searchOptions": {
