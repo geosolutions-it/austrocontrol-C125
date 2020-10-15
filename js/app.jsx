@@ -5,8 +5,8 @@
  * This source code is licensed under the BSD-style license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-const ConfigUtils = require('../MapStore2/web/client/utils/ConfigUtils');
+import main from '../MapStore2/web/client/product/main';
+import ConfigUtils from '../MapStore2/web/client/utils/ConfigUtils';
 /**
  * Add custom (overriding) translations with:
  *
@@ -46,4 +46,4 @@ const appConfig = require('../MapStore2/web/client/product/appConfig');
 const plugins = require('./plugins');
 // const plugins = require('../MapStore2/web/client/product/plugins');
 
-require('../MapStore2/web/client/product/main')(appConfig, plugins);
+main(appConfig, plugins);
