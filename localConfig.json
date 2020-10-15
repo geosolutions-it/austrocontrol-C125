@@ -70,7 +70,7 @@
             "selectedService": "AustroControl Free WMS Service",
             "services": {
               "AustroControl Inspire WMS Service": {
-                "url": " https://sdigeo-free.austrocontrol.at/geoserver/tn-a/wms",
+                "url": "https://sdigeo-free.austrocontrol.at/geoserver/tn-a/wms",
                 "type": "wms",
                 "title": "AustroControl Inspire WMS Service",
                 "autoload": true
