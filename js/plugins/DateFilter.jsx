@@ -5,17 +5,19 @@
  * This source code is licensed under the BSD-style license found in the
  * LICENSE file in the root directory of this source tree.
  */
-const assign = require('object-assign');
-const {connect} = require('react-redux');
-const {compose, branch, renderNothing} = require('recompose');
-const {createSelector} = require('reselect');
+import assign from 'object-assign';
+import {connect} from 'react-redux';
+import {compose, branch, renderNothing} from 'recompose';
+import {createSelector} from 'reselect';
 
-const {setDate, toggleLayerVisibility} = require('../actions/dateFilter');
-const { getEffectiveDates, getDate, showDateFilter, getHideLayers } = require('../selectors/dateFilter');
-const { mapLayoutValuesSelector } = require('../../MapStore2/web/client/selectors/maplayout');
+import {setDate, toggleLayerVisibility} from '../actions/dateFilter';
+import { getEffectiveDates, getDate, showDateFilter, getHideLayers } from '../selectors/dateFilter';
+import { mapLayoutValuesSelector } from '../../MapStore2/web/client/selectors/maplayout';
 
-
-const enhanceDateFilter = require('../components/timeFilter/enhancers/dateFilter');
+import * as epics from '../epics/dateFilter';
+import dateFilter from '../reducers/dateFilter';
+import enhanceDateFilter from '../components/timeFilter/enhancers/dateFilter';
+import DateFilter from '../components/timeFilter/DateFilter';
 
 /**
  * Floating widget that allows to filter layers selecting a date. Many of the settings can be set
@@ -53,9 +55,9 @@ const DateFilterPlugin = compose(
         renderNothing
     ),
     enhanceDateFilter
-)(require('../components/timeFilter/DateFilter'));
+)(DateFilter);
 
-module.exports = {
+export default {
     DateFilterPlugin: assign(DateFilterPlugin, {
         disablePluginIf: "{state('featuregridmode') === 'EDIT'}",
         FloatingCard: {
@@ -63,6 +65,6 @@ module.exports = {
             name: 'dateFilter'
         }
     }),
-    epics: require('../epics/dateFilter'),
-    reducers: { dateFilter: require('../reducers/dateFilter')}
+    epics,
+    reducers: { dateFilter }
 };

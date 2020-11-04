@@ -6,10 +6,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const expect = require('expect');
-const dateFilter = require('../dateFilter');
-const { setEffectiveDates, setDate, toggleLayerVisibility } = require('../../actions/dateFilter');
-const { getEffectiveDates, getEffectiveDatesURL, getHideLayers, getDate } = require('../../selectors/dateFilter');
+import expect from 'expect';
+import dateFilter from '../dateFilter';
+import { setEffectiveDates, setDate, toggleLayerVisibility } from '../../actions/dateFilter';
+import { getEffectiveDates, getEffectiveDatesURL, getHideLayers, getDate } from '../../selectors/dateFilter';
 
 describe('dateFilter reducer', () => {
     it('setEffectiveDates sets dates', () => {
