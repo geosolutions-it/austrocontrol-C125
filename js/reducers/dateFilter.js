@@ -6,8 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const { set } = require('../../MapStore2/web/client/utils/ImmutableUtils');
-const { SET_EFFECTIVE_DATES, SET_DATE, TOGGLE_LAYER_VISIBILITY} = require('../actions/dateFilter');
+import { set } from '../../MapStore2/web/client/utils/ImmutableUtils';
+import { SET_EFFECTIVE_DATES, SET_DATE, TOGGLE_LAYER_VISIBILITY} from '../actions/dateFilter';
 
 /**
  * Reducer to manage the state of DateFilter plugin.
@@ -20,7 +20,7 @@ const { SET_EFFECTIVE_DATES, SET_DATE, TOGGLE_LAYER_VISIBILITY} = require('../ac
  * @param {object} state old state
  * @param {object} action action. Intercepts actions from dateFilter action creators
  */
-module.exports = ( state = {
+export default ( state = {
     effectiveDatesURL: "assets/config/effectiveDates.json"
 }, action ) => {
     switch (action.type) {

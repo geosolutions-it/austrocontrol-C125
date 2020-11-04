@@ -19,9 +19,8 @@ module.exports = {
         // framework plugins
         AddGroupPlugin: require('../MapStore2/web/client/plugins/AddGroup').default,
         AnnotationsPlugin: require('../MapStore2/web/client/plugins/Annotations'),
-        AutoMapUpdatePlugin: require('../MapStore2/web/client/plugins/AutoMapUpdate'),
-        BackgroundSelectorPlugin: require('../MapStore2/web/client/plugins/BackgroundSelector'),
-        BackgroundSwitcherPlugin: require('../MapStore2/web/client/plugins/BackgroundSwitcher'),
+        AutoMapUpdatePlugin: require('../MapStore2/web/client/plugins/AutoMapUpdate').default,
+        BackgroundSelectorPlugin: require('../MapStore2/web/client/plugins/BackgroundSelector').default,
         BurgerMenuPlugin: require('../MapStore2/web/client/plugins/BurgerMenu'),
         CRSSelectorPlugin: require('../MapStore2/web/client/plugins/CRSSelector'),
         ContentTabs: require('../MapStore2/web/client/plugins/ContentTabs'),
@@ -61,7 +60,7 @@ module.exports = {
         IdentifyPlugin: require('../MapStore2/web/client/plugins/Identify'),
         LanguagePlugin: require('../MapStore2/web/client/plugins/Language'),
         LayerInfoPlugin: require('../MapStore2/web/client/plugins/LayerInfo').default,
-        LocatePlugin: require('../MapStore2/web/client/plugins/Locate'),
+        LocatePlugin: require('../MapStore2/web/client/plugins/Locate').default,
         LoginPlugin: require('../MapStore2/web/client/plugins/Login'),
         ManagerMenuPlugin: require('../MapStore2/web/client/plugins/manager/ManagerMenu'),
         ManagerPlugin: require('../MapStore2/web/client/plugins/manager/Manager'),
@@ -70,7 +69,7 @@ module.exports = {
         MapFooterPlugin: require('../MapStore2/web/client/plugins/MapFooter'),
         MapImportPlugin: require('../MapStore2/web/client/plugins/MapImport'),
         MapLoadingPlugin: require('../MapStore2/web/client/plugins/MapLoading'),
-        MapPlugin: require('../MapStore2/web/client/plugins/Map'),
+        MapPlugin: require('../MapStore2/web/client/plugins/Map').default,
         MapSearchPlugin: require('../MapStore2/web/client/plugins/MapSearch'),
         MapsPlugin: require('../MapStore2/web/client/plugins/Maps').default,
         MapCatalogPlugin: require('../MapStore2/web/client/plugins/MapCatalog').default,
@@ -124,8 +123,8 @@ module.exports = {
         ZoomOutPlugin: require('../MapStore2/web/client/plugins/ZoomOut'),
 
         // project plugins
-        DateFilter: require('./plugins/DateFilter'),
-        IdentifySettingsPlugin: require('./plugins/IdentifySettings')
+        DateFilter: require('./plugins/DateFilter').default,
+        IdentifySettingsPlugin: require('./plugins/IdentifySettings').default
     },
     requires: {
         ReactSwipe: require('react-swipeable-views').default,

@@ -6,16 +6,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-var expect = require('expect');
-const { testEpic } = require('../../../MapStore2/web/client/epics/__tests__/epicTestUtils');
-const { loadDateFilterEffectiveDates, dateFilterToggleHideLayerVisibility } = require('../dateFilter');
-const { SET_EFFECTIVE_DATES, toggleLayerVisibility, TOGGLE_LAYER_VISIBILITY } = require('../../actions/dateFilter');
-const {SHOW_NOTIFICATION} = require('../../../MapStore2/web/client/actions/notifications');
-const { CHANGE_LAYER_PROPERTIES, changeLayerProperties } = require('../../../MapStore2/web/client/actions/layers');
-const { LOCATION_CHANGE } = require('react-router-redux');
+import expect from 'expect';
+import { testEpic } from '../../../MapStore2/web/client/epics/__tests__/epicTestUtils';
+import { loadDateFilterEffectiveDates, dateFilterToggleHideLayerVisibility } from '../dateFilter';
+import { SET_EFFECTIVE_DATES, toggleLayerVisibility, TOGGLE_LAYER_VISIBILITY } from '../../actions/dateFilter';
+import {SHOW_NOTIFICATION} from '../../../MapStore2/web/client/actions/notifications';
+import { CHANGE_LAYER_PROPERTIES, changeLayerProperties } from '../../../MapStore2/web/client/actions/layers';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 
-const { configureMap} = require('../../../MapStore2/web/client/actions/config');
+import { configureMap} from '../../../MapStore2/web/client/actions/config';
 
 const STATE_LAYERS = {
     layers: {
