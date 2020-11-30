@@ -50,7 +50,8 @@
           "config": {
             "geometryEditorOptions": { "measureOptions": {"displayUom": "nm"}},
             "multiGeometry": true,
-            "validationErrors": {}
+            "validationErrors": {},
+            "defaultPointType": "symbol"
           },
           "format": "aeronautical",
           "defaultTextAnnotation": "New"
@@ -392,7 +393,7 @@
                 }
             }, "Home", "FeatureEditor",
             {
-              "name": "WFSDownload",
+              "name": "LayerDownload",
               "cfg": {
                 "srsList": [
                     {"name": "EPSG:4326", "label": "WGS84"},
