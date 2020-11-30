@@ -12,16 +12,16 @@ const moment = require('moment');
 const momentLocalizer = require('react-widgets/lib/localizers/moment');
 const Toolbar = require('../../../MapStore2/web/client/components/misc/toolbar/Toolbar');
 const Message = require('../../../MapStore2/web/client/plugins/locale/Message');
-const localizedProps = require('../../../MapStore2/web/client/components/misc/enhancers/localizedProps');
+const localizedProps = require('../../../MapStore2/web/client/components/misc/enhancers/localizedProps').default;
 
 const {head} = require('lodash');
 const {Calendar} = require('react-widgets');
 const {ListGroup, ListGroupItem, Glyphicon: GlyphiconRB, Button: ButtonRB} = require('react-bootstrap');
 const BorderLayout = require('../../../MapStore2/web/client/components/layout/BorderLayout');
-const Filter = localizedProps('filterPlaceholder')(require('../../../MapStore2/web/client/components/misc/Filter'));
+const Filter = localizedProps('filterPlaceholder')(require('../../../MapStore2/web/client/components/misc/Filter').default);
 const SideCard = require('./SideCardM');
 momentLocalizer(moment);
-const tooltip = require('../../../MapStore2/web/client/components/misc/enhancers/tooltip');
+const tooltip = require('../../../MapStore2/web/client/components/misc/enhancers/tooltip').default;
 const Button = tooltip(ButtonRB);
 const Glyphicon = tooltip(GlyphiconRB);
 
