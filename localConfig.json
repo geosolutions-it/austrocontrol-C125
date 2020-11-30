@@ -200,6 +200,17 @@
                 }
             }, "Version", "DrawerMenu",
             {
+              "name": "Details",
+              "override": {
+                "Toolbar": {
+                  "priority": 1
+                },
+                "BurgerMenu": {
+                  "priority": 1
+                }
+              }
+            },
+            {
                 "name": "BackgroundSelector",
                 "cfg": {
                     "bottom": 25,
@@ -302,7 +313,18 @@
             },
             "FeedbackMask"
         ],
-        "desktop": [ "Details", "LayerInfo",
+        "desktop": [
+          {
+            "name": "Details",
+            "override": {
+              "Toolbar": {
+                "priority": 1
+              },
+              "BurgerMenu": {
+                "priority": 1
+              }
+            }
+          }, "LayerInfo",
           {
             "name": "Map",
             "cfg": {
