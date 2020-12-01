@@ -2,7 +2,8 @@
     "locale": "en-US",
     "messages": {
         "measureComponent": {
-            "addAsAnnotaion": "Add as annotation",
+            "addAsAnnotation": "Add as annotation (Can be edited again)",
+            "addAsLayer": "Add as layer (Cannot be edited again)",
             "newMeasure": "New annotation"
         },
         "dateFilter": {
