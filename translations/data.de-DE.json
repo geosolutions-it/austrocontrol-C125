@@ -2,7 +2,8 @@
     "locale": "de-DE",
     "messages": {
         "measureComponent": {
-            "addAsAnnotaion": "Als Anmerkung hinzufügen",
+            "addAsAnnotation": "Als Notiz hinzufügen (Kann erneut bearbeitet werden)",
+            "addAsLayer": "Als Layer hinzufügen (Kann nicht mehr bearbeitet werden)",
             "newMeasure": "Neue Anmerkung"
         },
          "dateFilter": {
