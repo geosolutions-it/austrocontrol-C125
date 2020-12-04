@@ -2,10 +2,12 @@ const path = require("path");
 
 const themeEntries = require('./MapStore2/build/themes.js').themeEntries;
 const extractThemesPlugin = require('./MapStore2/build/themes.js').extractThemesPlugin;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = require('./MapStore2/build/buildConfig')(
     {
-        'austrocontrol-ms2': path.join(__dirname, "js", "app")
+        'austrocontrol-ms2': path.join(__dirname, "js", "app"),
+        'embedded': path.join(__dirname, "js", "embedded")
     },
     themeEntries,
     {
@@ -17,5 +19,18 @@ module.exports = require('./MapStore2/build/buildConfig')(
     extractThemesPlugin,
     true,
     "/austrocontrol-ms2/dist/",
-    '.austrocontrol-ms2'
+    '.austrocontrol-ms2',
+    [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'embeddedTemplate.html'),
+            chunks: ['embedded'],
+            inject: true,
+            hash: true,
+            filename: 'embedded.html'
+        })
+    ],
+    {
+        '@mapstore': path.resolve(__dirname, 'MapStore2/web/client'),
+        '@js': path.resolve(__dirname, 'js')
+    }
 );
