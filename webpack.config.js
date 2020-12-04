@@ -5,7 +5,8 @@ const assign = require('object-assign');
 
 module.exports = assign({}, require('./MapStore2/build/buildConfig')(
     {
-        'austrocontrol-ms2': path.join(__dirname, "js", "app")
+        'austrocontrol-ms2': path.join(__dirname, "js", "app"),
+        'embedded': path.join(__dirname, "js", "embedded")
     },
     themeEntries,
     {
