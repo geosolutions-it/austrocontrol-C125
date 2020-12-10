@@ -365,7 +365,16 @@
               "cfg": {
                 "advancedSettings": {
                   "bbox": true,
-                  "centerAndZoom": true
+                  "centerAndZoom": true,
+                  "defaultEnabled": "markerAndZoom"
+                }
+              },
+              "override": {
+                "Toolbar": {
+                  "priority": 1
+                },
+                "BurgerMenu": {
+                  "priority": 1
                 }
               }
             },
