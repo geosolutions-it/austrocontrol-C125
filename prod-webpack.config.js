@@ -18,7 +18,7 @@ module.exports = require('./MapStore2/build/buildConfig')(
     },
     [extractThemesPlugin, moduleFederationPlugin],
     true,
-    "austrocontrol-ms2/dist/",
+    "/austrocontrol-ms2/dist/",
     '.austrocontrol-ms2',
     [
         new HtmlWebpackPlugin({
