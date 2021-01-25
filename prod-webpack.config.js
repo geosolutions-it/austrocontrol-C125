@@ -1,9 +1,9 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const themeEntries = require('./MapStore2/build/themes.js').themeEntries;
 const extractThemesPlugin = require('./MapStore2/build/themes.js').extractThemesPlugin;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
 module.exports = require('./MapStore2/build/buildConfig')(
     {
         'austrocontrol-ms2': path.join(__dirname, "js", "app"),
@@ -16,9 +16,9 @@ module.exports = require('./MapStore2/build/buildConfig')(
         framework: path.join(__dirname, "MapStore2", "web", "client"),
         code: [path.join(__dirname, "js"), path.join(__dirname, "MapStore2", "web", "client")]
     },
-    extractThemesPlugin,
+    [extractThemesPlugin, moduleFederationPlugin],
     true,
-    "/austrocontrol-ms2/dist/",
+    "austrocontrol-ms2/dist/",
     '.austrocontrol-ms2',
     [
         new HtmlWebpackPlugin({
