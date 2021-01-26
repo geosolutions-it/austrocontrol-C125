@@ -128,6 +128,6 @@ module.exports = {
     },
     requires: {
         ReactSwipe: require('react-swipeable-views').default,
-        SwipeHeader: require('../MapStore2/web/client/components/data/identify/SwipeHeader')
+        SwipeHeader: require('../MapStore2/web/client/components/data/identify/SwipeHeader').default
     }
 };
