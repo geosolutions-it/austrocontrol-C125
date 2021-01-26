@@ -345,9 +345,13 @@
                   }
                 }
               },
+              "tools": ["locate"],
               "toolsOptions": {
                 "scalebar": {
                   "container" : "#footer-scalebar-container"
+                },
+                "locate": {
+                  "maxZoom" : 10
                 }
               }
             }
@@ -614,7 +618,10 @@
                     }
                   }
                 }
-            }, {
+            },
+
+            "Details",
+            {
               "name": "DrawerMenu",
               "hide": "{!(request.query && request.query.forceDrawer)}"
               },{
