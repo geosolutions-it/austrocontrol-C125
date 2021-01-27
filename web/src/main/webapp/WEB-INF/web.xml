@@ -8,6 +8,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
             classpath*:applicationContext.xml
+            classpath*:applicationContext-print.xml
         </param-value>
 	</context-param>
     <display-name>AustroControl Custom MapStore2 Project - Web App</display-name>
@@ -45,7 +46,35 @@
 		<url-pattern>/rest/*</url-pattern>
 	</filter-mapping>
 
-    <!-- CXF Servlet -->
+	<!-- GZip compression -->
+	<filter>
+		<filter-name>CompressionFilter</filter-name>
+		<filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CompressionFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CompressionFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CompressionFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+
+    <!--  Backend Spring MVC controllers -->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/rest/config/*</url-pattern>
+    </servlet-mapping>
+        <!-- CXF Servlet -->
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
 		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>

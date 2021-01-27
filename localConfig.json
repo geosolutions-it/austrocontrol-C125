@@ -196,8 +196,7 @@
                           "altShiftDragRotate": false
                         }
                       }
-                    },
-                    "tools": ["locate"]
+                    }
                 }
             }, "Version", "DrawerMenu",
             {
@@ -345,7 +344,6 @@
                   }
                 }
               },
-              "tools": ["locate"],
               "toolsOptions": {
                 "scalebar": {
                   "container" : "#footer-scalebar-container"
@@ -595,7 +593,6 @@
         "embedded": [{
                 "name": "Map",
                 "cfg": {
-                    "tools": ["locate"],
                     "mapOptions": {
                     "openlayers": {
                       "interactions": {
