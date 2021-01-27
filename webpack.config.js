@@ -30,6 +30,10 @@ module.exports = assign({}, require('./MapStore2/build/buildConfig')(
             target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2",
             secure: false
         },
+        '/rest/config': {
+            target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2",
+            secure: false
+        },
         '/pdf': {
             target: "https://austrocontrol.geo-solutions.it/austrocontrol-ms2",
             secure: false
