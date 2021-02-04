@@ -1,6 +1,6 @@
 {
     "name": "austrocontrol-ms2",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "AustroControl Custom MapStore2 Project",
     "repository": "https://github.com/geosolutions-it/austrocontrol-C125",
     "main": "index.js",
