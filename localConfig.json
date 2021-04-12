@@ -274,6 +274,7 @@
                     "services": [
                       {
                         "type": "nominatim",
+                        "priority": 5,
                         "options": {
                           "countrycodes": "at,de"
                         }
@@ -515,6 +516,7 @@
                     "services": [
                       {
                         "type": "nominatim",
+                        "priority": 5,
                         "options": {
                           "countrycodes": "at,de"
                         }
@@ -680,6 +682,7 @@
                     "services": [
                       {
                         "type": "nominatim",
+                        "priority": 5,
                         "options": {
                           "countrycodes": "at,de"
                         }
