@@ -5,7 +5,8 @@
             "http://demo.geo-solutions.it/geoserver",
             "https://demo.geo-solutions.it:443/geoserver",
             "https://demo.geo-solutions.it/geoserver",
-            "https://nominatim.openstreetmap.org"
+            "https://nominatim.openstreetmap.org",
+            "https://sdimdt-free.austrocontrol.at"
         ]
     },
     "geoStoreUrl": "rest/geostore/",
@@ -28,7 +29,11 @@
     "localizedLayerStyles": {
       "name": "mapstore_language"
     },
-    "authenticationRules": [{
+    "authenticationRules": [
+      {
+        "urlPattern": "https://sdimdt-free\\.austrocontrol\\.at/.*",
+        "method": "browserWithCredentials"
+      },{
         "urlPattern": ".*geostore.*",
         "method": "bearer"
     }, {
